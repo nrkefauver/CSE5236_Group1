@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hink.hinkling"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.hink.hinkling.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.Call_camera"
+            android:label="@string/title_activity_call_camera" >
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.Settings"
+            android:label="@string/title_activity_settings" >
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.GameSession"
+            android:label="@string/title_activity_game_session" >
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.Audio"
+            android:label="@string/title_activity_audio" >
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.Help"
+            android:label="@string/title_activity_help" >
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.MyPlaybackService"
+            android:label="@string/title_activity_my_playback_service" >
+        </activity>
+    </application>
+
+</manifest>
