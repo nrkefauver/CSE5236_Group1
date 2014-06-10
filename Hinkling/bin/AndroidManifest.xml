@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hink.hinkling"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.hink.hinkling.SplashScreen"
+            android:label="@string/app_name"
+            android:launchMode="standard"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.MainActivity"
+            android:label="@string/app_name"
+            android:launchMode="standard"
+            android:permission="com.hink.hinkling.LAUNCHACTIVITY"
+            android:screenOrientation="unspecified" >
+            <intent-filter>
+                <action android:name="com.hink.hinkling.MainActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.Call_camera"
+            android:label="@string/title_activity_call_camera" >
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.Settings"
+            android:label="@string/title_activity_settings" >
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.GameSession"
+            android:label="@string/title_activity_game_session" >
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.Audio"
+            android:label="@string/title_activity_audio" >
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.Help"
+            android:label="@string/title_activity_help" >
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.MyPlaybackService"
+            android:label="@string/title_activity_my_playback_service" >
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.Round"
+            android:label="@string/title_activity_round" >
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.RoundOne"
+            android:label="@string/title_activity_round_one" >
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.Profile"
+            android:label="@string/title_activity_profile" >
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.Login"
+            android:label="@string/title_activity_login" >
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.PreGameSession"
+            android:label="@string/title_activity_pre_game_session" >
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.PlayerSearch"
+            android:label="@string/title_activity_player_search" >
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.SMRoundOne"
+            android:label="@string/title_activity_smround_one" >
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.Loser"
+            android:label="@string/title_activity_loser" >
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.EndGameSession"
+            android:label="@string/title_activity_end_game_session" >
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.Subject"
+            android:label="@string/title_activity_subject" >
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,72 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context="com.hink.hinkling.Loser"
+    tools:ignore="MergeRootFrame" >
+
+<RelativeLayout>
+
+</RelativeLayout>
+
+<TextView
+    android:id="@+id/GameOver"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="20dp"
+    android:text="YOU LOST! why?"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:textColor="@color/yellow"
+    android:textSize="50dp" />
+
+<Button
+    android:id="@+id/button3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignLeft="@+id/button2"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentRight="true"
+    android:layout_marginBottom="32dp"
+    android:text="@string/buttonReplay" />
+
+<Button
+    android:id="@+id/button2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/button3"
+    android:layout_alignLeft="@+id/button1"
+    android:layout_alignParentRight="true"
+    android:text="@string/buttonEndGameSession" />
+
+<Button
+    android:id="@+id/button1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/button2"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentRight="true"
+    android:text="@string/mainMenu" />
+
+<TextView
+    android:id="@+id/textView1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/GameOver"
+    android:layout_marginRight="26dp"
+    android:layout_marginTop="27dp"
+    android:layout_toLeftOf="@+id/button1"
+    android:text="Rate Subject Master:"
+    android:textColor="@color/yellow" />
+
+<RatingBar
+    android:id="@+id/ratingBar1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/button1"
+    android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
