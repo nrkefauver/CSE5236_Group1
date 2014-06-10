@@ -92,7 +92,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		{
 		case R.id.buttonProfile:
-			startActivity(new Intent(this, CreateProfile.class));
+			startActivity(new Intent(this, ViewProfile.class));
 			break;
 		case R.id.buttonNewGame:
 			startActivity(new Intent(this, PreGameSession.class));
