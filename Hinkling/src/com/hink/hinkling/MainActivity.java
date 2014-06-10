@@ -1,8 +1,5 @@
 package com.hink.hinkling;
 
-
-
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -17,14 +14,14 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
-public class MainActivity extends Activity implements OnClickListener  {
+public class MainActivity extends Activity implements OnClickListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
-		View btnAccount= findViewById(R.id.buttonProfile);
+
+		View btnAccount = findViewById(R.id.buttonProfile);
 		btnAccount.setOnClickListener(this);
 		View btnNewGame = findViewById(R.id.buttonNewGame);
 		btnNewGame.setOnClickListener(this);
@@ -33,28 +30,31 @@ public class MainActivity extends Activity implements OnClickListener  {
 		View btnExit = findViewById(R.id.buttonExit);
 		btnExit.setOnClickListener(this);
 	}
-	private void quitApplication(){
+
+	private void quitApplication() {
 		new AlertDialog.Builder(this)
-		.setTitle(R.string.exit)
-		.setMessage("Quit Hinkling??? WHY?")
-		.setIcon(android.R.drawable.ic_dialog_alert)
-		.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog, int which) {
-				System.exit(0);
-			}
-		})
-		.setNegativeButton("No", new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog, int which) {}
-		})
-		.show();
-    }
-	
+				.setTitle(R.string.exit)
+				.setMessage("Quit Hinkling??? WHY?")
+				.setIcon(android.R.drawable.ic_dialog_alert)
+				.setPositiveButton("Yes",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+									int which) {
+								System.exit(0);
+							}
+						})
+				.setNegativeButton("No", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+					}
+				}).show();
+	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.main, menu);
-		   MenuInflater inflater = getMenuInflater();
-		    inflater.inflate(R.menu.main, menu);
-		    return true;
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.main, menu);
+		return true;
 	}
 
 	@Override
@@ -88,10 +88,11 @@ public class MainActivity extends Activity implements OnClickListener  {
 
 	@Override
 	public void onClick(View v) {
-		switch(v.getId())
-		
-		{	case R.id.buttonProfile:
-			startActivity(new Intent(this, Profile.class));
+		switch (v.getId())
+
+		{
+		case R.id.buttonProfile:
+			startActivity(new Intent(this, CreateProfile.class));
 			break;
 		case R.id.buttonNewGame:
 			startActivity(new Intent(this, PreGameSession.class));
@@ -99,14 +100,13 @@ public class MainActivity extends Activity implements OnClickListener  {
 		case R.id.buttonSettings:
 			startActivity(new Intent(this, Settings.class));
 			break;
-		case R.id.buttonExit:
-			{
-				quitApplication();
-				stopService(new Intent(this, MyPlaybackService.class));
-			}
+		case R.id.buttonExit: {
+			quitApplication();
+			stopService(new Intent(this, MyPlaybackService.class));
+		}
 			break;
 		}
-		
+
 	}
 
 }

@@ -18,7 +18,6 @@
     <string name="buttonQuickPlay">Quick Play</string>
     <string name="buttonInvites">Invites</string>
     <string name="new_user">New Users</string>
-    <string name="Loser">Loser!</string>
     <string name="new_game">Find Game</string>
     <string name="audio">Sound</string>
     <string name="settings">Options</string>
@@ -46,6 +45,12 @@
     <string name="title_activity_loser">Loser</string>
     <string name="title_activity_end_game_session">EndGameSession</string>
     <string name="title_activity_subject">Subject</string>
-    <string name="title_activity_game_one">GameOne</string>
+    <string name="create_new_account">Create New Account</string>
+    <string name="done">Done</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="title_activity_view_profile">ViewProfile</string>
 
 </resources>

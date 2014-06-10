@@ -27,23 +27,21 @@ public class Subject extends Activity implements OnClickListener {
 		btnNext.setOnClickListener(this);
 		
 		timeSub=(TextView)findViewById(R.id.timeSub1);
-		
 
 	    new CountDownTimer(10000, 1000) { 
 
 	        public void onTick(long secondsUntilFinished) {
 
-	            		 timeSub.setText("" + secondsUntilFinished / 1000);              	
+	            		 timeSub.setText("" + secondsUntilFinished / 1000);          
 	        }
 
 	        public void onFinish() {
 	        	
 	            timeSub.setText("done!");
-	            startActivity(new Intent("com.hink.hinkling.Loser"));
+	            //startActivity(new Intent("com.hink.hinkling.Loser"));
 	        	}
 	     }
 	    .start();      
-	    
 	}
 
 	@Override

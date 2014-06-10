@@ -17,16 +17,16 @@ public class SplashScreen extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash_screen);
-		
-		final MediaPlayer mp = MediaPlayer.create(this,R.raw.summer);
-		final MediaPlayer wistle = MediaPlayer.create(this,R.raw.swis);
+
+		final MediaPlayer mp = MediaPlayer.create(this, R.raw.summer);
+		final MediaPlayer wistle = MediaPlayer.create(this, R.raw.swis);
 		wistle.start();
 		// thread for displaying the SplashScreen
 		Thread splashThread = new Thread() {
 			@Override
 			public void run() {
 				try {
-				
+
 					int elapsedTime = 0;
 					while (active && (elapsedTime < splashTime)) {
 						sleep(sleepTime);
@@ -36,8 +36,8 @@ public class SplashScreen extends Activity {
 				} catch (InterruptedException e) {
 					// do nothing
 				} finally {
-					finish();	
-					startActivity(new Intent("com.hink.hinkling.MainActivity"));
+					finish();
+					startActivity(new Intent("com.hink.hinkling.Login"));
 					mp.start();
 				}
 			}
