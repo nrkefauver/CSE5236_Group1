@@ -46,6 +46,10 @@
             android:label="@string/title_activity_call_camera" >
         </activity>
         <activity
+            android:name="com.hink.hinkling.MainActivity"
+            android:label="@string/title_activity_main" >
+        </activity>
+        <activity
             android:name="com.hink.hinkling.Settings"
             android:label="@string/title_activity_settings" >
         </activity>
@@ -74,10 +78,6 @@
             android:label="@string/title_activity_round_one" >
         </activity>
         <activity
-            android:name="com.hink.hinkling.CreateProfile"
-            android:label="@string/title_activity_profile" >
-        </activity>
-        <activity
             android:name="com.hink.hinkling.PreGameSession"
             android:label="@string/title_activity_pre_game_session" >
         </activity>
@@ -90,12 +90,16 @@
             android:label="@string/title_activity_smround_one" >
         </activity>
         <activity
-            android:name="com.hink.hinkling.MainActivity"
-            android:label="@string/title_activity_main" >
-        </activity>
-        <activity
             android:name="com.hink.hinkling.Loser"
-            android:label="@string/title_activity_loser" >
+            android:label="@string/app_name"
+            android:launchMode="standard"
+            android:permission="com.hink.hinkling.LAUNCHACTIVITY"
+            android:screenOrientation="unspecified" >
+            <intent-filter>
+                <action android:name="com.hink.hinkling.Loser" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity
             android:name="com.hink.hinkling.EndGameSession"
@@ -106,8 +110,16 @@
             android:label="@string/title_activity_subject" >
         </activity>
         <activity
+            android:name="com.hink.hinkling.GameOne"
+            android:label="@string/title_activity_game_one" >
+        </activity>
+        <activity
             android:name="com.hink.hinkling.ViewProfile"
             android:label="@string/title_activity_view_profile" >
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.CreateProfile"
+            android:label="@string/title_activity_create_profile" >
         </activity>
     </application>
 

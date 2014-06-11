@@ -21,7 +21,7 @@ public class DatabaseHelper {
 
 	public DatabaseHelper(Context context) {
 		this.context = context;
-		HinklingOpenHelper openHelper = new HinklingOpenHelper(this.context);
+		TicTacToeOpenHelper openHelper = new TicTacToeOpenHelper(this.context);
 		this.db = openHelper.getWritableDatabase();
 		this.insertStmt = this.db.compileStatement(INSERT);
 	}
@@ -54,8 +54,8 @@ public class DatabaseHelper {
 		return list;
 	}
 
-	private static class HinklingOpenHelper extends SQLiteOpenHelper {
-		HinklingOpenHelper(Context context) {
+	private static class TicTacToeOpenHelper extends SQLiteOpenHelper {
+		TicTacToeOpenHelper(Context context) {
 			super(context, DATABASE_NAME, null, DATABASE_VERSION);
 		}
 
