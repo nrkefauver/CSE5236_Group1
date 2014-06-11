@@ -47,5 +47,11 @@
     <string name="title_activity_end_game_session">EndGameSession</string>
     <string name="title_activity_subject">Subject</string>
     <string name="title_activity_game_one">GameOne</string>
+    <string name="title_activity_guestbook">Guestbook</string>
+    <string name="buttonChat">Chat</string>
+    <string name="switch_account">Switch Account</string>
+    <string name="no_messages">No messages yet</string>
+    <string name="announce_success">YOU HAVE JOINED</string>
+    <string name="announce_fail">CONNECTION FAILED</string>
 
 </resources>

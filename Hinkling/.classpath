@@ -2,16 +2,12 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
-	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
-	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
-	<classpathentry kind="lib" path="C:/Users/X/android-sdks/platforms/android-19/android.jar" sourcepath="C:/Users/X/android-sdks/sources/android-19">
-		<attributes>
-			<attribute name="javadoc_location" value="file:/C:/Users/X/android-sdks/docs/reference"/>
-		</attributes>
-		<accessrules>
-			<accessrule kind="nonaccessible" pattern="com/android/internal/**"/>
-		</accessrules>
-	</classpathentry>
+	<classpathentry kind="con" path="com.google.gdt.eclipse.managedapis.MANAGED_API_CONTAINER/games-v1r48lv1.16.0-rc"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/CloudBackendAndroidClient"/>
+	<classpathentry kind="lib" path="D:/Misc/adt-bundle-windows-x86_64-20140321/sdk/platforms/android-19/android.jar"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry kind="src" path="mobilebackend-v1-generated-source"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

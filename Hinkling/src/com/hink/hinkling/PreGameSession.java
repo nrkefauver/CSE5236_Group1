@@ -13,61 +13,68 @@ import android.view.ViewGroup;
 
 public class PreGameSession extends Activity implements OnClickListener {
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_pre_game_session);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        this.setContentView(R.layout.activity_pre_game_session);
 
-		View btnQuickPlay= findViewById(R.id.buttonQuickPlay);
-		btnQuickPlay.setOnClickListener(this);
-	}
+        View btnQuickPlay = this.findViewById(R.id.buttonQuickPlay);
+        btnQuickPlay.setOnClickListener(this);
+        View btnChat = this.findViewById(R.id.buttonChat);
+        btnChat.setOnClickListener(this);
+    }
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
 
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.pre_game_session, menu);
-		return true;
-	}
+        // Inflate the menu; this adds items to the action bar if it is present.
+        this.getMenuInflater().inflate(R.menu.pre_game_session, menu);
+        return true;
+    }
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
-	public static class PlaceholderFragment extends Fragment {
+    /**
+     * A placeholder fragment containing a simple view.
+     */
+    public static class PlaceholderFragment extends Fragment {
 
-		public PlaceholderFragment() {
-		}
+        public PlaceholderFragment() {
+        }
 
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(
-					R.layout.fragment_pre_game_session, container, false);
-			return rootView;
-		}
-	}
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                Bundle savedInstanceState) {
+            View rootView = inflater.inflate(
+                    R.layout.fragment_pre_game_session, container, false);
+            return rootView;
+        }
+    }
 
-	@Override
-	public void onClick(View v) {
-switch(v.getId())
-		
-		{	case R.id.buttonQuickPlay:
-			startActivity(new Intent(this, Subject.class));
-			break;
-		}
-		
-	}
+    @Override
+    public void onClick(View v) {
+        switch (v.getId())
+
+        {
+            case R.id.buttonQuickPlay:
+                this.startActivity(new Intent(this, Subject.class));
+                break;
+
+            case R.id.buttonChat:
+                this.startActivity(new Intent(this, GuestbookActivity.class));
+                break;
+        }
+
+    }
 
 }

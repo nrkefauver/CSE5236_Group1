@@ -16,5 +16,31 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
+    
+    <style name="AnnounceText" parent="@style/BaseText">
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="DisplayText" parent="@style/BaseText">
+        <item name="android:textColor">@color/light_grey</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    
+    <style name="BaseText">
+        <item name="android:typeface">sans</item>
+    </style>
+    
+    <style name="PostText" parent="@style/BaseText">
+        <item name="android:textColor">@color/dark_grey</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="SignatureText" parent="@style/BaseText">
+        <item name="android:textColor">@color/light_grey</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    
 
 </resources>
