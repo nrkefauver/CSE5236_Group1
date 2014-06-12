@@ -1919,13 +1919,12 @@ containing a value of this type.
         public static final int title_activity_splash_screen=0x7f0b0052;
         public static final int title_activity_subject=0x7f0b0059;
         public static final int title_activity_view_profile=0x7f0b005c;
-        public static final int title_activity_xmppchat=0x7f0b0066;
-        public static final int title_activity_xmppclient=0x7f0b0065;
         public static final int username=0x7f0b005d;
         /**  Text on a placeholder buy button when Google Play services is not
          available or up-to-date 
          */
         public static final int wallet_buy_button_place_holder=0x7f0b002c;
+        public static final int xmppchat=0x7f0b0065;
     }
     public static final class style {
         /** 

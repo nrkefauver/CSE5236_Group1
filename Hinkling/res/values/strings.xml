@@ -57,7 +57,6 @@
     <string name="cancel">Cancel</string>
     <string name="title_activity_chat">Chat</string>
     <string name="title_activity_settings_dialog">SettingsDialog</string>
-    <string name="title_activity_xmppclient">XMPPClient</string>
-    <string name="title_activity_xmppchat">XMPPChat</string>
+    <string name="xmppchat">Hinkling Chat</string>
 
 </resources>

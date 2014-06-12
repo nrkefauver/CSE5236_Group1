@@ -660,10 +660,9 @@ int string title_activity_smround_one 0x7f0b0056
 int string title_activity_splash_screen 0x7f0b0052
 int string title_activity_subject 0x7f0b0059
 int string title_activity_view_profile 0x7f0b005c
-int string title_activity_xmppchat 0x7f0b0066
-int string title_activity_xmppclient 0x7f0b0065
 int string username 0x7f0b005d
 int string wallet_buy_button_place_holder 0x7f0b002c
+int string xmppchat 0x7f0b0065
 int style AppBaseTheme 0x7f0c008f
 int style AppTheme 0x7f0c0090
 int style TextAppearance_AppCompat_Base_CompactMenu_Dialog 0x7f0c0063

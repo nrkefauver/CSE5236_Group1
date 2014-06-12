@@ -131,12 +131,8 @@
             android:label="@string/title_activity_settings_dialog" >
         </activity>
         <activity
-            android:name="com.hink.hinkling.XMPPClient"
-            android:label="@string/title_activity_xmppclient" >
-        </activity>
-        <activity
             android:name="com.hink.hinkling.XMPPChat"
-            android:label="@string/title_activity_xmppchat" >
+            android:label="@string/xmppchat" >
         </activity>
     </application>
 
