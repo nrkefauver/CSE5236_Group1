@@ -55,4 +55,9 @@
     <string name="done">Done</string>
     <string name="create_new_account">Create New Account</string>
     <string name="cancel">Cancel</string>
-</resources>
+    <string name="title_activity_chat">Chat</string>
+    <string name="title_activity_settings_dialog">SettingsDialog</string>
+    <string name="title_activity_xmppclient">XMPPClient</string>
+    <string name="title_activity_xmppchat">XMPPChat</string>
+
+</resources>

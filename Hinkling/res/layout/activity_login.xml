@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@drawable/bgr"
     android:orientation="horizontal"
     android:padding="20dip" >
 
@@ -17,6 +17,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="15dip"
             android:text="@string/login_title"
+            android:textColor="@color/yellow"
             android:textSize="20.5sp" />
 
         <TextView
@@ -24,6 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:text="@string/enter_username"
+            android:textColor="@color/yellow"
             android:textSize="15.5sp" />
 
         <EditText
@@ -31,41 +33,47 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:singleLine="true" />
+            android:singleLine="true" 
+            android:textColor="@color/yellow"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:text="@string/enter_password"
-            android:textSize="15.5sp" />
+            android:textSize="15.5sp" 
+            android:textColor="@color/yellow"/>
 
         <EditText
             android:id="@+id/password_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:singleLine="true" />
+            android:singleLine="true" 
+            android:textColor="@color/yellow"/>
 
         <Button
             android:id="@+id/login_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
-            android:text="@string/login" />
+            android:text="@string/login" 
+            android:textColor="@color/yellow"/>
 
         <Button
             android:id="@+id/cancel_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/exit" />
+            android:text="@string/exit"
+            android:textColor="@color/yellow" />
 
         <Button
             android:id="@+id/new_user_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dip"
-            android:text="@string/new_user" />
+            android:text="@string/new_user" 
+            android:textColor="@color/yellow"/>
     </LinearLayout>
 
 </ScrollView>

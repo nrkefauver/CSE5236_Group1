@@ -10,6 +10,7 @@
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-feature android:name="android.hardware.camera" />
 
@@ -120,6 +121,22 @@
         <activity
             android:name="com.hink.hinkling.CreateProfile"
             android:label="@string/title_activity_create_profile" >
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.Chat"
+            android:label="@string/title_activity_chat" >
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.SettingsDialog"
+            android:label="@string/title_activity_settings_dialog" >
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.XMPPClient"
+            android:label="@string/title_activity_xmppclient" >
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.XMPPChat"
+            android:label="@string/title_activity_xmppchat" >
         </activity>
     </application>
 
