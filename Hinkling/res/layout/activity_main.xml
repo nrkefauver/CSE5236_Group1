@@ -1,7 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?><LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+<!-- Main Screen -->
+<LinearLayout android:id="@+id/screen_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bgg"
+    android:background="@drawable/colorbubbles"
+    android:gravity="center"
     android:orientation="vertical"
     android:textSize="15.5sp" >
 
@@ -14,66 +22,97 @@
         android:textSize="30sp" />
 
    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.58"
-        android:gravity="bottom|center"
-        android:orientation="vertical" >
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:layout_weight="0.58"
+       android:gravity="bottom|center"
+       android:orientation="vertical" >
 
-        <VideoView
-            android:id="@+id/videoView1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.57" />
-      
+       <Button
+           android:id="@+id/buttonQuickPlay"
+           android:layout_width="match_parent"
+           android:layout_height="62dp"
+           android:background="@color/dark"
+           android:layout_marginTop="174dp"
+           android:text="@string/buttonQuickPlay"
+           android:textColor="@color/yellow" />
         <Button
-                android:id="@+id/buttonProfile"
-                android:layout_width="match_parent"
-                android:layout_height="62dp"
-                android:background="@color/dark"
-                android:text="@string/profile"
-                android:textColor="@color/yellow" />
-        
+           android:id="@+id/buttonPlayFriends"
+           android:layout_width="match_parent"
+           android:layout_height="62dp"
+           android:background="@color/dark"
+           android:layout_below="@+id/buttonQuickPlay"
+           android:text="@string/buttonPlayFriends"
+            android:textColor="@color/yellow" />
+       <Button
+           android:id="@+id/buttonInvites"
+           android:layout_width="match_parent"
+           android:layout_height="62dp"
+           android:background="@color/dark"
+           android:text="@string/buttonInvites"
+           android:layout_below="@+id/buttonPlayFriends"
+           android:textColor="@color/yellow" />
+       
+       <Button
+           android:id="@+id/buttonProfile"
+           android:layout_width="match_parent"
+           android:layout_height="62dp"
+           android:background="@color/dark"
+           android:text="@string/profile"
+           android:layout_below="@+id/buttonInvites"
+           android:textColor="@color/yellow" />
 
-    </LinearLayout>
+       <Button
+           android:id="@+id/buttonSettings"
+           android:layout_width="match_parent"
+           android:layout_height="62dp"
+           android:background="@color/dark"
+           android:text="@string/settings"
+           android:layout_below="@+id/buttonProfile"
+           android:textColor="@color/yellow" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dip"
-        android:orientation="vertical" >
-
-      <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="vertical" >
-    
-            <Button
-                android:id="@+id/buttonNewGame"
-                android:layout_width="match_parent"
-                android:layout_height="66dp"
-                android:background="@color/lightyellow"
-                android:text="@string/new_game" />
-
-            <Button
-                android:id="@+id/buttonSettings"
-                android:layout_width="match_parent"
-                android:layout_height="62dp"
-                android:background="@color/dark"
-                android:text="@string/settings"
-                android:textColor="@color/yellow" />
-
-  
-        </LinearLayout>
-    </ScrollView>
+       
+   </LinearLayout>
 
     <Button
         android:id="@+id/buttonExit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/lightyellow"
+        android:layout_below="@+id/buttonSettings"
         android:text="@string/exit" />
 
 </LinearLayout>
+
+ <!-- SIGN-IN SCREEN -->
+    <LinearLayout android:id="@+id/screen_sign_in" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+        <TextView style="@style/GameBlurb" />
+
+        <com.google.android.gms.common.SignInButton android:id="@+id/button_sign_in"
+            style="@style/SignInButton" />
+    </LinearLayout>
+    
+    <!-- INVITATION POPUP -->
+    <LinearLayout android:id="@+id/invitation_popup" style="@style/InvPopup" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+        <TextView android:id="@+id/incoming_invitation_text" 
+            style="@style/InvPopupText"
+            android:layout_width="match_parent"
+    android:layout_height="match_parent" />
+        <Button android:id="@+id/button_accept_popup_invitation"
+            style="@style/InvPopupButton"
+            android:text="@string/accept_popup_invite"
+            android:layout_width="match_parent"
+    android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <!-- "PLEASE WAIT" SCREEN -->
+    <LinearLayout android:id="@+id/screen_wait" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+        <TextView style="@style/Blurb" android:text="@string/please_wait"
+            android:layout_width="match_parent"
+    android:layout_height="match_parent" />
+    </LinearLayout>
+    
+    </FrameLayout>

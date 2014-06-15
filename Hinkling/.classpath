@@ -5,6 +5,7 @@
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
-	<classpathentry exported="true" kind="lib" path="/XMPPChatDemo/lib/asmack-2010.05.07.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/Downloads/adt-bundle-windows-x86_64-20140321/asmack-2010.05.07.jar"/>
+	<classpathentry kind="src" path="mobilebackend-v1-generated-source"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

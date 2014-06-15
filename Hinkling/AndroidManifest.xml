@@ -11,6 +11,11 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.cloud.backend.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
 
     <uses-feature android:name="android.hardware.camera" />
 
@@ -38,8 +43,6 @@
             android:screenOrientation="unspecified" >
             <intent-filter>
                 <action android:name="com.hink.hinkling.Login" />
-
-                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
@@ -47,8 +50,15 @@
             android:label="@string/title_activity_call_camera" >
         </activity>
         <activity
-            android:name="com.hink.hinkling.MainActivity"
-            android:label="@string/title_activity_main" >
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:launchMode="standard"
+            android:permission="com.hink.hinkling.LAUNCHACTIVITY"
+            android:screenOrientation="unspecified" >
+            <intent-filter> 
+            <action android:name="com.hink.hinkling.MainActivity" />  
+                <category android:name="android.intent.category.DEFAULT" />  
+     </intent-filter>
         </activity>
         <activity
             android:name="com.hink.hinkling.Settings"
@@ -134,6 +144,22 @@
             android:name="com.hink.hinkling.XMPPChat"
             android:label="@string/xmppchat" >
         </activity>
+        
+        <service android:name="com.google.cloud.backend.GCMIntentService"/>
+
+        <receiver android:name="com.google.android.gcm.GCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.google.cloud.solutions.sampleapps.mobilebackend"/>
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.google.cloud.backend.GCMIntentService"/>
+        <meta-data android:name="com.google.android.gms.version"
+           android:value="@integer/google_play_services_version" />
+        <meta-data android:name="com.google.android.gms.games.APP_ID"
+            android:value="@string/app_id" />
     </application>
 
 </manifest>
