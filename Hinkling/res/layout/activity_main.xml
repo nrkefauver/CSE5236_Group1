@@ -8,7 +8,7 @@
 <LinearLayout android:id="@+id/screen_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/colorbubbles"
+    android:background="@drawable/bgr"
     android:gravity="center"
     android:orientation="vertical"
     android:textSize="15.5sp" >
@@ -40,7 +40,7 @@
            android:id="@+id/buttonPlayFriends"
            android:layout_width="match_parent"
            android:layout_height="62dp"
-           android:background="@color/dark"
+           android:background="@color/lightyellow"
            android:layout_below="@+id/buttonQuickPlay"
            android:text="@string/buttonPlayFriends"
             android:textColor="@color/yellow" />
@@ -57,7 +57,7 @@
            android:id="@+id/buttonProfile"
            android:layout_width="match_parent"
            android:layout_height="62dp"
-           android:background="@color/dark"
+           android:background="@color/lightyellow"
            android:text="@string/profile"
            android:layout_below="@+id/buttonInvites"
            android:textColor="@color/yellow" />
