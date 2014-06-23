@@ -87,8 +87,12 @@
  <!-- SIGN-IN SCREEN -->
     <LinearLayout android:id="@+id/screen_sign_in" android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <TextView style="@style/GameTitle" />
         <TextView style="@style/GameBlurb" />
-
+        
+        <Button android:id="@+id/button_single_player"
+            style="@style/MainScreenButton"
+            android:text="@string/app_name" />
         <com.google.android.gms.common.SignInButton android:id="@+id/button_sign_in"
             style="@style/SignInButton" />
     </LinearLayout>

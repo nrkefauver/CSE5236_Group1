@@ -76,5 +76,6 @@
     <string name="game_problem">An error occurred while starting the game. Please try again.</string>
     <string name="is_inviting_you">is challenging you to a game!</string>
     <string name="game_blurb">Got a hint? Got an inkling? Get a HINKLING! To play this game with friends, you must sign in with Google.</string>
+    <string name="title_activity_screen_clear_mini_game">ScreenClearMiniGame</string>
 
 </resources>

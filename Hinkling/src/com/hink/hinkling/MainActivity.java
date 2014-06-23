@@ -181,6 +181,9 @@ public class MainActivity extends BaseGameActivity implements
                 // user wants to play against a random opponent right now
                 this.startQuickGame();
                 break;
+            case R.id.buttonProfile:
+                //user wants to chat using Xaviers chat
+                this.startActivity(new Intent(this, ScreenClearMiniGame.class));
         }
 
     }
@@ -568,7 +571,7 @@ public class MainActivity extends BaseGameActivity implements
     // event handlers.
     final static int[] CLICKABLES = { R.id.buttonQuickPlay, R.id.buttonProfile,
             R.id.buttonSettings, R.id.buttonPlayFriends, R.id.buttonExit,
-            R.id.buttonInvites };
+            R.id.buttonInvites, R.id.buttonProfile };
 
     // This array lists all the individual screens our game has.
     final static int[] SCREENS = { R.id.screen_main, R.id.invitation_popup,

@@ -17,6 +17,7 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
     
+
     <style name="BaseText">
         <item name="android:typeface">sans</item>
     </style>
@@ -67,9 +68,35 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/BlurbColor</item>
     </style>
+    
+    <style name="MainScreenButton" parent="@style/GameButton">
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+    
+    <style name="GameButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/AccentColor</item>
+        <item name="android:textColor">@color/ButtonTextColor</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+    </style>
+    
+    <style name="MainScreenButtonBlurb" parent="@style/GameBlurb">
+        <item name="android:layout_marginBottom">20dp</item>
+    </style>
 
     <style name="GameBlurb" parent="@style/Blurb">
         <item name="android:text">@string/game_blurb</item>
+        <item name="android:layout_marginBottom">40dp</item>
+    </style>
+    
+    <style name="GameTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/app_name</item>
+        <item name="android:textColor">@color/AccentColor</item>
+        <item name="android:textSize">@dimen/TitleSize</item>
         <item name="android:layout_marginBottom">40dp</item>
     </style>
 
