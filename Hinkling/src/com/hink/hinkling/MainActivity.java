@@ -1,13 +1,19 @@
 package com.hink.hinkling;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.Set;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -35,6 +41,7 @@ import com.google.android.gms.games.multiplayer.realtime.RoomStatusUpdateListene
 import com.google.android.gms.games.multiplayer.realtime.RoomUpdateListener;
 import com.google.example.games.basegameutils.BaseGameActivity;
 
+
 public class MainActivity extends BaseGameActivity implements
         View.OnClickListener, RealTimeMessageReceivedListener,
         RoomStatusUpdateListener, RoomUpdateListener,
@@ -54,6 +61,9 @@ public class MainActivity extends BaseGameActivity implements
     final static int RC_INVITATION_INBOX = 10001;
     final static int RC_WAITING_ROOM = 10002;
 
+
+    Random randomize = new Random();
+    
     // Room ID where the currently active game is taking place; null if we're
     // not playing.
     String mRoomId = null;
@@ -65,7 +75,7 @@ public class MainActivity extends BaseGameActivity implements
     ArrayList<Participant> mParticipants = null;
 
     // My participant ID in the currently active game
-    String mMyId = null;
+    public static String mMyId = null;
 
     // If non-null, this is the id of the invitation we received via the
     // invitation listener
@@ -176,6 +186,13 @@ public class MainActivity extends BaseGameActivity implements
                 // (the one we got through the OnInvitationReceivedListener).
                 this.acceptInviteToRoom(this.mIncomingInvitationId);
                 this.mIncomingInvitationId = null;
+                intent = Games.Invitations.getInvitationInboxIntent(this
+                        .getApiClient());
+                this.switchToScreen(R.id.screen_wait);
+                this.startActivityForResult(intent, RC_INVITATION_INBOX);
+                break;
+            case R.id.buttonChat:
+            	this.startActivity(new Intent(this, XMPPChat.class));
                 break;
             case R.id.buttonQuickPlay:
                 // user wants to play against a random opponent right now
@@ -207,7 +224,7 @@ public class MainActivity extends BaseGameActivity implements
 
     void startQuickGame() {
         // quick-start a game with 1 randomly selected opponent
-        final int MIN_OPPONENTS = 1, MAX_OPPONENTS = 1;
+        final int MIN_OPPONENTS = 3, MAX_OPPONENTS = 3;
         Bundle autoMatchCriteria = RoomConfig.createAutoMatchCriteria(
                 MIN_OPPONENTS, MAX_OPPONENTS, 0);
         RoomConfig.Builder rtmConfigBuilder = RoomConfig.builder(this);
@@ -241,8 +258,8 @@ public class MainActivity extends BaseGameActivity implements
                 if (responseCode == Activity.RESULT_OK) {
                     // ready to start playing
                     Log.d(TAG, "Starting game (waiting room returned OK).");
-                    //this.startGame(true);
-                    this.startActivity(new Intent(this, Subject.class));
+                    this.startGame(true);
+                  
                 } else if (responseCode == GamesActivityResultCodes.RESULT_LEFT_ROOM) {
                     // player indicated that they want to leave the room
                     this.leaveRoom();
@@ -362,7 +379,7 @@ public class MainActivity extends BaseGameActivity implements
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent e) {
         if (keyCode == KeyEvent.KEYCODE_BACK
-        /* && this.mCurScreen == R.id.screen_game */) {
+         && this.mCurScreen == R.id.screen_game ) {
             this.leaveRoom();
             return true;
         }
@@ -563,45 +580,152 @@ public class MainActivity extends BaseGameActivity implements
             //this.updatePeerScoresDisplay();
         }
     }
+ // Current state of the game:
+    int mSecondsLeft = -1; // how long until the game ends (seconds)
+    final static int GAME_DURATION = 20; // game duration, seconds.
+    int mScore = 0; // user's current score
+
+    // Reset game variables in preparation for a new game.
+    void resetGameVars() {
+        mSecondsLeft = GAME_DURATION;
+        mScore = 0;
+        mParticipantScore.clear();
+        mFinishedParticipants.clear();
+    }
+
+    
+   
+    // Start the gameplay phase of the game.
+    void startGame(boolean multiplayer) {
+        mMultiplayer = multiplayer;
+        broadcastScore(false);
+        switchToScreen(R.id.screen_game);
+        
+        Participant sM = mParticipants.get(1);
+        String subjectMaster = sM.getParticipantId();
+        
+        if (subjectMaster.contains(mMyId)){
+        this.startActivity(new Intent(this, Subject.class));
+        } else {
+        this.startActivity(new Intent(this, Loser.class));
+        }
+        // run the gameTick() method every second to update the game.
+        final Handler h = new Handler();
+        h.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (mSecondsLeft <= 0)
+                    return;        
+                h.postDelayed(this, 1000);
+            }
+        }, 1000);
+    }
+
+
+
+    Map<String, Integer> mParticipantScore = new HashMap<String, Integer>();
+
+    // Participants who sent us their final score.
+    Set<String> mFinishedParticipants = new HashSet<String>();
+
+    // Called when we receive a real-time message from the network.
+    // Messages in our game are made up of 2 bytes: the first one is 'F' or 'U'
+    // indicating
+    // whether it's a final or interim score. The second byte is the score.
+    // There is also the
+    // 'S' message, which indicates that the game should start.
+    @Override
+    public void onRealTimeMessageReceived(RealTimeMessage rtm) {
+        byte[] buf = rtm.getMessageData();
+        String sender = rtm.getSenderParticipantId();
+        Log.d(TAG, "Message received: " + (char) buf[0] + "/" + (int) buf[1]);
+
+        if (buf[0] == 'F' || buf[0] == 'U') {
+            // score update.
+            int existingScore = mParticipantScore.containsKey(sender) ?
+                    mParticipantScore.get(sender) : 0;
+            int thisScore = (int) buf[1];
+            if (thisScore > existingScore) {
+                // this check is necessary because packets may arrive out of
+                // order, so we
+                // should only ever consider the highest score we received, as
+                // we know in our
+                // game there is no way to lose points. If there was a way to
+                // lose points,
+                // we'd have to add a "serial number" to the packet.
+                mParticipantScore.put(sender, thisScore);
+            }
+
+            // if it's a final score, mark this participant as having finished
+            // the game
+            if ((char) buf[0] == 'F') {
+                mFinishedParticipants.add(rtm.getSenderParticipantId());
+            }
+        }
+    }
+
+    // Broadcast my score to everybody else.
+    void broadcastScore(boolean finalScore) {
+        if (!mMultiplayer)
+            return; // playing single-player mode
+
+        // First byte in message indicates whether it's a final score or not
+        mMsgBuf[0] = (byte) (finalScore ? 'F' : 'U');
+
+        // Second byte is the score.
+        mMsgBuf[1] = (byte) mScore;
+
+        // Send to every other participant.
+        for (Participant p : mParticipants) {
+            if (p.getParticipantId().equals(mMyId))
+                continue;
+            if (p.getStatus() != Participant.STATUS_JOINED)
+                continue;
+            if (finalScore) {
+                // final score notification must be sent via reliable message
+                Games.RealTimeMultiplayer.sendReliableMessage(getApiClient(), null, mMsgBuf,
+                        mRoomId, p.getParticipantId());
+            } else {
+                // it's an interim score notification, so we can use unreliable
+                Games.RealTimeMultiplayer.sendUnreliableMessage(getApiClient(), mMsgBuf, mRoomId,
+                        p.getParticipantId());
+            }
+        }
+    }
+
 
     // This array lists everything that's clickable, so we can install click
     // event handlers.
     final static int[] CLICKABLES = { R.id.buttonQuickPlay, R.id.buttonProfile,
             R.id.buttonSettings, R.id.buttonPlayFriends, R.id.buttonExit,
-            R.id.buttonInvites };
+            R.id.buttonInvites,R.id.buttonChat };
 
     // This array lists all the individual screens our game has.
-    final static int[] SCREENS = { R.id.screen_main, R.id.invitation_popup,
-            R.id.screen_sign_in, R.id.screen_wait };
+    final static int[] SCREENS = {
+            R.id.screen_game, R.id.screen_main, R.id.screen_sign_in,
+            R.id.screen_wait
+    };
     int mCurScreen = -1;
 
     void switchToScreen(int screenId) {
         // make the requested screen visible; hide all others.
         for (int id : SCREENS) {
-            this.findViewById(id).setVisibility(
-                    screenId == id ? View.VISIBLE : View.GONE);
+            findViewById(id).setVisibility(screenId == id ? View.VISIBLE : View.GONE);
         }
-        this.mCurScreen = screenId;
+        mCurScreen = screenId;
 
         // should we show the invitation popup?
         boolean showInvPopup;
-        if (this.mIncomingInvitationId == null) {
+        if (mIncomingInvitationId == null) {
             // no invitation, so no popup
             showInvPopup = false;
-        } else if (this.mMultiplayer) {
+        } else if (mMultiplayer) {
             // if in multiplayer, only show invitation on main screen
-            showInvPopup = (this.mCurScreen == R.id.screen_main);
+            showInvPopup = (mCurScreen == R.id.screen_main);
         } else {
-            // single-player: show on main screen and gameplay screen
-            showInvPopup = (this.mCurScreen == R.id.screen_main /*
-                                                                 * ||
-                                                                 * this.mCurScreen
-                                                                 * ==
-                                                                 * R.id.screen_game
-                                                                 */);
+            showInvPopup = (mCurScreen == R.id.screen_main);
         }
-        this.findViewById(R.id.invitation_popup).setVisibility(
-                showInvPopup ? View.VISIBLE : View.GONE);
+        findViewById(R.id.invitation_popup).setVisibility(showInvPopup ? View.VISIBLE : View.GONE);
     }
 
     void switchToMainScreen() {
@@ -636,10 +760,6 @@ public class MainActivity extends BaseGameActivity implements
                 WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
-    @Override
-    public void onRealTimeMessageReceived(RealTimeMessage arg0) {
-        // TODO Auto-generated method stub
 
-    }
 
 }

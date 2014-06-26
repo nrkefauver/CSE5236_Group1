@@ -7,7 +7,9 @@
     tools:context="com.hink.hinkling.Loser"
     tools:ignore="MergeRootFrame" >
 
-<RelativeLayout>
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent" >
 
 </RelativeLayout>
 

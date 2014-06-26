@@ -20,7 +20,15 @@
         android:text="@string/main_title"
         android:textColor="@color/yellow"
         android:textSize="30sp" />
-
+    
+       <Button
+           android:id="@+id/buttonProfile"
+           android:layout_width="match_parent"
+           android:layout_height="62dp"
+           android:background="@color/lightyellow"
+           android:text="@string/profile"
+           android:layout_below="@+id/buttonInvites"
+           android:textColor="@color/yellow" />
    <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="0dp"
@@ -53,25 +61,27 @@
            android:layout_below="@+id/buttonPlayFriends"
            android:textColor="@color/yellow" />
        
+
+
        <Button
-           android:id="@+id/buttonProfile"
+         android:id="@+id/buttonChat"
            android:layout_width="match_parent"
            android:layout_height="62dp"
            android:background="@color/lightyellow"
-           android:text="@string/profile"
-           android:layout_below="@+id/buttonInvites"
+           android:text="@string/chat"
+           android:layout_below="@+id/buttonProfile"
            android:textColor="@color/yellow" />
-
+       
        <Button
            android:id="@+id/buttonSettings"
            android:layout_width="match_parent"
            android:layout_height="62dp"
            android:background="@color/dark"
            android:text="@string/settings"
-           android:layout_below="@+id/buttonProfile"
+           android:layout_below="@+id/buttonChat"
            android:textColor="@color/yellow" />
-
-       
+	
+	
    </LinearLayout>
 
     <Button
@@ -96,23 +106,43 @@
     <!-- INVITATION POPUP -->
     <LinearLayout android:id="@+id/invitation_popup" style="@style/InvPopup" android:layout_width="match_parent"
     android:layout_height="match_parent">
+        
         <TextView android:id="@+id/incoming_invitation_text" 
             style="@style/InvPopupText"
-            android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+            android:textColor = "@color/yellow"
+            android:background = "@color/dark"
+            android:layout_width="100dp"
+    android:layout_height="100dp" />
+        
         <Button android:id="@+id/button_accept_popup_invitation"
             style="@style/InvPopupButton"
             android:text="@string/accept_popup_invite"
-            android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+            android:textColor = "@color/yellow"
+            android:background = "@color/dark"
+            android:layout_width="70dp"
+            android:layout_height="70dp" />
+        
     </LinearLayout>
 
     <!-- "PLEASE WAIT" SCREEN -->
-    <LinearLayout android:id="@+id/screen_wait" android:layout_width="match_parent"
+    <LinearLayout android:id="@+id/screen_wait" 
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
-        <TextView style="@style/Blurb" android:text="@string/please_wait"
+
+        <TextView
+            style="@style/Blurb"
             android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:text="@string/please_wait" />
+
+    </LinearLayout>
+    
+      <!-- GAMEPLAY SCREEN -->
+    <LinearLayout android:id="@+id/screen_game"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+      
+
     </LinearLayout>
     
     </FrameLayout>

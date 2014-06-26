@@ -37,8 +37,10 @@ public class Subject extends Activity implements OnClickListener {
 
 	        public void onFinish() {
 	        	
+	        	if (active == false){
 	            timeSub.setText("done!");
-	            //startActivity(new Intent("com.hink.hinkling.Loser"));
+	            startActivity(new Intent("com.hink.hinkling.Loser"));
+	        	}
 	        	}
 	     }
 	    .start();      

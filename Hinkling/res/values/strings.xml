@@ -20,6 +20,7 @@
     <string name="buttonInvites">Invites</string>
     <string name="new_user">New Users</string>
     <string name="Loser">Loser!</string>
+    <string name="chat">Chat</string>
     <string name="new_game">Find Game</string>
     <string name="audio">Sound</string>
     <string name="settings">Options</string>
@@ -68,13 +69,14 @@
     <string name="no_messages">No messages yet</string>
     <string name="signing_in">Signing in with Google</string>
     <string name="signing_out">Signing out</string>
-    <string name="inv_popup_text">Incoming invitation!</string>
-    <string name="accept_popup_invite">Accept!</string>
+    <string name="inv_popup_text">You Have been invited to a game of Hinkling!</string>
+    <string name="accept_popup_invite">Accept Game!</string>
     <string name="sign_out">Sign Out</string>
     <string name="please_wait">Please wait...</string>
     <string name="dismiss">Dismiss</string>
     <string name="game_problem">An error occurred while starting the game. Please try again.</string>
     <string name="is_inviting_you">is challenging you to a game!</string>
     <string name="game_blurb">Got a hint? Got an inkling? Get a HINKLING! To play this game with friends, you must sign in with Google.</string>
+    <string name="title_activity_smselect">SMSelect</string>
 
 </resources>

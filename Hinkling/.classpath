@@ -15,5 +15,13 @@
 	<classpathentry kind="con" path="com.google.gdt.eclipse.managedapis.MANAGED_API_CONTAINER/games-v1r48lv1.16.0-rc"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/X/android-sdks/extras/android/support/v7/appcompat/libs/android-support-v7-appcompat.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/X/android-sdks/extras/android/support/v7/appcompat/libs/android-support-v4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/X/android-sdks/platforms/android-19/android.jar" sourcepath="C:/Users/X/android-sdks/sources/android-19">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/C:/Users/X/android-sdks/docs/reference"/>
+		</attributes>
+		<accessrules>
+			<accessrule kind="nonaccessible" pattern="com/android/internal/**"/>
+		</accessrules>
+	</classpathentry>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
