@@ -656,7 +656,6 @@ public class MainActivity extends BaseGameActivity implements
         
         Participant sM = mParticipants.get(1);
         String subjectMaster = sM.getParticipantId();
-        
         if (subjectMaster.contains(mMyId)){
         this.startActivity(new Intent(this, WelcomeSM.class));
         } else {

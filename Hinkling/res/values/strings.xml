@@ -85,5 +85,6 @@
     <string name="title_activity_player_waiting">PlayerWaiting</string>
     <string name="title_activity_security">Security</string>
     <string name="title_activity_welcome_sm">WelcomeSM</string>
+    <string name="title_activity_screen_clear_mini_game">ScreenClearMiniGame</string>
 
 </resources>

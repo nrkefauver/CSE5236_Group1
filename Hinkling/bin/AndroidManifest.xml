@@ -120,8 +120,8 @@
         <activity
             android:name="com.hink.hinkling.Subject"
             android:label="@string/title_activity_subject"
-            android:permission="com.hink.hinkling.LAUNCHACTIVITY">
-             <intent-filter>
+            android:permission="com.hink.hinkling.LAUNCHACTIVITY" >
+            <intent-filter>
                 <action android:name="com.hink.hinkling.Subject" />
 
                 <category android:name="android.intent.category.DEFAULT" />
@@ -163,7 +163,6 @@
 
                 <category android:name="com.google.cloud.solutions.sampleapps.mobilebackend" />
             </intent-filter>
-            
         </receiver>
 
         <service android:name="com.google.cloud.backend.GCMIntentService" />
@@ -189,9 +188,9 @@
         </activity>
         <activity
             android:name="com.hink.hinkling.PlayerWaiting"
-            android:label="@string/title_activity_player_waiting" 
-            android:permission="com.hink.hinkling.LAUNCHACTIVITY">
-             <intent-filter>
+            android:label="@string/title_activity_player_waiting"
+            android:permission="com.hink.hinkling.LAUNCHACTIVITY" >
+            <intent-filter>
                 <action android:name="com.hink.hinkling.PlayerWaiting" />
 
                 <category android:name="android.intent.category.DEFAULT" />
@@ -204,13 +203,17 @@
         </activity>
         <activity
             android:name="com.hink.hinkling.WelcomeSM"
-            android:label="@string/title_activity_welcome_sm" 
-              android:permission="com.hink.hinkling.LAUNCHACTIVITY">
-             <intent-filter>
+            android:label="@string/title_activity_welcome_sm"
+            android:permission="com.hink.hinkling.LAUNCHACTIVITY" >
+            <intent-filter>
                 <action android:name="com.hink.hinkling.WelcomeSM" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.ScreenClearMiniGame"
+            android:label="@string/title_activity_screen_clear_mini_game" >
         </activity>
     </application>
 

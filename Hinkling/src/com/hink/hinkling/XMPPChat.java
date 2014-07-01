@@ -165,9 +165,9 @@ public class XMPPChat extends Activity {
             public void onClick(View view) {
             	int participantCount = 0;
             	while(MainActivity.mParticipants.size() > participantCount){
-            		Participant recip = MainActivity.mParticipants.get(participantCount);            		
-            		if(!recip.getParticipantId().contains(MainActivity.mMyId)){
+            		Participant recip = MainActivity.mParticipants.get(participantCount);
             		mRecipient = recip.getDisplayName();
+            		if(!recip.getParticipantId().equals(MainActivity.mMyId)){
             		to = mRecipient;
                 String text = mSendText.getText().toString();
                  Log.i("XMPPChat", "Sending text [" + text + "] to [" +  to + "]");
