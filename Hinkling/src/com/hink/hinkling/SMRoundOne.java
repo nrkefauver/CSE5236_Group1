@@ -12,13 +12,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class SMRoundOne extends Activity {
+public class SMRoundOne extends Activity implements OnClickListener {
 	
 	TextView text1;
 	ImageView imgFavorite;
+	public static boolean go = false;
 
 	
 	@Override
@@ -26,6 +28,9 @@ public class SMRoundOne extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_smround_one);
 	 
+		View btnNext=findViewById(R.id.imageNext1);
+		btnNext.setOnClickListener(this);
+		
 	      imgFavorite = (ImageView)findViewById(R.id.imageView1);
 	      imgFavorite.setOnClickListener(new OnClickListener() {
 	         @Override
@@ -43,7 +48,10 @@ public class SMRoundOne extends Activity {
 	        }
 
 	        public void onFinish() {
-	            text1.setText("done!");
+	        	if (go == false){
+		            text1.setText("done!");
+		            startActivity(new Intent("com.hink.hinkling.Loser"));
+		        	}
 	        }
 	     }.start();             
 
@@ -95,6 +103,16 @@ public class SMRoundOne extends Activity {
 			View rootView = inflater.inflate(R.layout.fragment_smround_one,
 					container, false);
 			return rootView;
+		}
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch(v.getId())
+		{	case R.id.imageNext1:
+			go = true;
+			this.startActivity(new Intent(this, XMPPChat.class));
+			break;
 		}
 	}
 

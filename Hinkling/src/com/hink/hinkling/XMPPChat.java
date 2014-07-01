@@ -25,19 +25,21 @@ import org.jivesoftware.smack.packet.Packet;
 import org.jivesoftware.smack.packet.Presence;
 import org.jivesoftware.smack.util.StringUtils;
 
+import com.google.android.gms.games.multiplayer.Participant;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-public class XMPPChat extends Activity implements OnClickListener {
+public class XMPPChat extends Activity {
 
 	public static final String HOST = "talk.google.com";
 	public static final int PORT = 5222;
 	public static final String SERVICE = "gmail.com";
-	public static final String USERNAME = "xayvair@gmail.com";
-	public static final String PASSWORD = "Number120*";
+	public static  String USERNAME = "";
+	public static  String PASSWORD = "";
 	public static int inc = 0;
 	public static String User;
 	public static String Name;
@@ -49,7 +51,7 @@ public class XMPPChat extends Activity implements OnClickListener {
     private ArrayList<String> messages = new ArrayList<String>();
     private Handler mHandler = new Handler();
     private SettingsDialog mDialog;
-    private EditText mRecipient;
+    private String mRecipient;
     private EditText mSendText;
     private ListView mList;
     private XMPPConnection connection;
@@ -145,7 +147,7 @@ public class XMPPChat extends Activity implements OnClickListener {
         Log.i("XMPPChat", "onCreate called");
         setContentView(R.layout.activity_xmppchat);
 
-        mRecipient = (EditText) this.findViewById(R.id.recipient);
+        //mRecipient = (EditText) this.findViewById(R.id.recipient);
         Log.i("XMPPChat", "mRecipient = " + mRecipient);
         mSendText = (EditText) this.findViewById(R.id.sendText);
         Log.i("XMPPChat", "mSendText = " + mSendText);
@@ -156,24 +158,17 @@ public class XMPPChat extends Activity implements OnClickListener {
         // Dialog for getting the xmpp settings
         mDialog = new SettingsDialog(this);
 
-        // Set a listener to show the settings dialog
-        Button setup = (Button) this.findViewById(R.id.setup);
-        setup.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                mHandler.post(new Runnable() {
-                    public void run() {
-                        mDialog.show();
-                    }
-                });
-            }
-        });
 
         // Set a listener to send a chat text message
         Button send = (Button) this.findViewById(R.id.send);
         send.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-            		
-            			to = mRecipient.getText().toString();
+            	int participantCount = 0;
+            	while(MainActivity.mParticipants.size() > participantCount){
+            		Participant recip = MainActivity.mParticipants.get(participantCount);            		
+            		if(!recip.getParticipantId().contains(MainActivity.mMyId)){
+            		mRecipient = recip.getDisplayName();
+            		to = mRecipient;
                 String text = mSendText.getText().toString();
                  Log.i("XMPPChat", "Sending text [" + text + "] to [" +  to + "]");
                  
@@ -185,6 +180,10 @@ public class XMPPChat extends Activity implements OnClickListener {
                 	messages.add(connection.getUser() + ":");
                 	messages.add(text);
                 	setListAdapter();
+                }
+            		}
+                participantCount++;
+            	
                 }
             }
         });
@@ -232,9 +231,4 @@ public class XMPPChat extends Activity implements OnClickListener {
     }
     
 
-	@Override
-	public void onClick(View v) {
-		// TODO Auto-generated method stub
-		
-	}
 }

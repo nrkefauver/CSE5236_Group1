@@ -10,6 +10,8 @@
     <string name="enter_password">Password</string>
     <string name="login">Login</string>
     <string name="back">Back</string>
+    <string name="securityInfo">Please use the security button and type your Google email and Password to access Gameplay. .</string>
+    <string name="security">Security</string>
     <string name="buttonProfile">View Profile</string>
     <string name="buttonReplay">Replay</string>
     <string name="buttonEndGameSession">End Game Session</string>
@@ -20,7 +22,7 @@
     <string name="buttonInvites">Invites</string>
     <string name="new_user">New Users</string>
     <string name="Loser">Loser!</string>
-    <string name="chat">Chat</string>
+    <string name="Help">Help</string>
     <string name="new_game">Find Game</string>
     <string name="audio">Sound</string>
     <string name="settings">Options</string>
@@ -78,5 +80,10 @@
     <string name="is_inviting_you">is challenging you to a game!</string>
     <string name="game_blurb">Got a hint? Got an inkling? Get a HINKLING! To play this game with friends, you must sign in with Google.</string>
     <string name="title_activity_smselect">SMSelect</string>
+    <string name="title_activity_smgame_session">SMGameSession</string>
+    <string name="title_activity_player_game_session">PlayerGameSession</string>
+    <string name="title_activity_player_waiting">PlayerWaiting</string>
+    <string name="title_activity_security">Security</string>
+    <string name="title_activity_welcome_sm">WelcomeSM</string>
 
 </resources>

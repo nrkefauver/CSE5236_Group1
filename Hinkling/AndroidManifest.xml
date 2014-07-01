@@ -119,7 +119,13 @@
         </activity>
         <activity
             android:name="com.hink.hinkling.Subject"
-            android:label="@string/title_activity_subject" >
+            android:label="@string/title_activity_subject"
+            android:permission="com.hink.hinkling.LAUNCHACTIVITY">
+             <intent-filter>
+                <action android:name="com.hink.hinkling.Subject" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity
             android:name="com.hink.hinkling.GameOne"
@@ -157,6 +163,7 @@
 
                 <category android:name="com.google.cloud.solutions.sampleapps.mobilebackend" />
             </intent-filter>
+            
         </receiver>
 
         <service android:name="com.google.cloud.backend.GCMIntentService" />
@@ -171,6 +178,39 @@
         <activity
             android:name="com.hink.hinkling.SMSelect"
             android:label="@string/title_activity_smselect" >
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.SMGameSession"
+            android:label="@string/title_activity_smgame_session" >
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.PlayerGameSession"
+            android:label="@string/title_activity_player_game_session" >
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.PlayerWaiting"
+            android:label="@string/title_activity_player_waiting" 
+            android:permission="com.hink.hinkling.LAUNCHACTIVITY">
+             <intent-filter>
+                <action android:name="com.hink.hinkling.PlayerWaiting" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.Security"
+            android:label="@string/title_activity_security"
+            android:windowSoftInputMode="stateVisible|adjustResize" >
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.WelcomeSM"
+            android:label="@string/title_activity_welcome_sm" 
+              android:permission="com.hink.hinkling.LAUNCHACTIVITY">
+             <intent-filter>
+                <action android:name="com.hink.hinkling.WelcomeSM" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
     </application>
 

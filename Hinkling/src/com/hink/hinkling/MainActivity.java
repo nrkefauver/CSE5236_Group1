@@ -8,13 +8,16 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
+import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.text.InputType;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -24,6 +27,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.google.android.gms.games.Games;
@@ -41,7 +48,6 @@ import com.google.android.gms.games.multiplayer.realtime.RoomStatusUpdateListene
 import com.google.android.gms.games.multiplayer.realtime.RoomUpdateListener;
 import com.google.example.games.basegameutils.BaseGameActivity;
 
-
 public class MainActivity extends BaseGameActivity implements
         View.OnClickListener, RealTimeMessageReceivedListener,
         RoomStatusUpdateListener, RoomUpdateListener,
@@ -55,14 +61,13 @@ public class MainActivity extends BaseGameActivity implements
     // Debug tag
     final static boolean ENABLE_DEBUG = true;
     final static String TAG = "Hinkling";
-
+    public static  String USERNAME = "";
     // Request codes for the UIs that we show with startActivityForResult:
     final static int RC_SELECT_PLAYERS = 10000;
     final static int RC_INVITATION_INBOX = 10001;
     final static int RC_WAITING_ROOM = 10002;
 
 
-    Random randomize = new Random();
     
     // Room ID where the currently active game is taking place; null if we're
     // not playing.
@@ -72,7 +77,7 @@ public class MainActivity extends BaseGameActivity implements
     boolean mMultiplayer = true;
 
     // The participants in the currently active game
-    ArrayList<Participant> mParticipants = null;
+   public static ArrayList<Participant> mParticipants = null;
 
     // My participant ID in the currently active game
     public static String mMyId = null;
@@ -93,8 +98,54 @@ public class MainActivity extends BaseGameActivity implements
         for (int id : CLICKABLES) {
             this.findViewById(id).setOnClickListener(this);
         }
+        
+        
+        final Button Security = (Button)findViewById(R.id.buttonSecurity);
+        Security.setOnClickListener(new Button.OnClickListener(){
 
+   @Override
+   public void onClick(View arg0) {
+    LayoutInflater layoutInflater 
+     = (LayoutInflater)getBaseContext()
+      .getSystemService(LAYOUT_INFLATER_SERVICE);  
+    View popupView = layoutInflater.inflate(R.layout.activity_security, null);  
+             final PopupWindow popupWindow = new PopupWindow(
+               popupView, 
+               LayoutParams.WRAP_CONTENT,  
+                     LayoutParams.WRAP_CONTENT,true);  
+             
+             Button btnDismiss = (Button)popupView.findViewById(R.id.dismiss);
+        	 final EditText securityUN= (EditText)popupView.findViewById(R.id.securityUser); 
+ 			 final EditText securityPW= (EditText)popupView.findViewById(R.id.securityPassword);	
+             btnDismiss.setOnClickListener(new Button.OnClickListener(){
+            	 
+            	 
+     @Override
+     public void onClick(View v) {
+ 	     
+ 		     switch(v.getId())
+ 			{	case R.id.dismiss:
+// 			  	 securityUN.setInputType(InputType.TYPE_CLASS_TEXT);
+// 	 		      InputMethodManager sUN = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+// 			      sUN.showSoftInput(securityUN, InputMethodManager.SHOW_IMPLICIT);
+ 			      XMPPChat.USERNAME = securityUN.getText().toString();
+// 			      securityPW.setInputType(InputType.TYPE_CLASS_TEXT);
+// 			      InputMethodManager sPW = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+// 			      sPW.showSoftInput(securityPW, InputMethodManager.SHOW_IMPLICIT);   
+ 	 		      XMPPChat.PASSWORD = securityPW.getText().toString();
+ 				break;
+ 			}
+ 	
+      popupWindow.dismiss();
+   
+      
+     }});
+               
+             popupWindow.showAsDropDown(Security, 50, -30);
+         
+   }});
     }
+        
 
     private void quitApplication() {
         new AlertDialog.Builder(this)
@@ -156,7 +207,7 @@ public class MainActivity extends BaseGameActivity implements
     @Override
     public void onClick(View v) {
         Intent intent;
-
+        if(XMPPChat.PASSWORD.length() > 0 && XMPPChat.USERNAME.length() > 0){
         switch (v.getId()) {
             case R.id.button_sign_in:
                 // user wants to sign in
@@ -184,6 +235,7 @@ public class MainActivity extends BaseGameActivity implements
             case R.id.button_accept_popup_invitation:
                 // user wants to accept the invitation shown on the invitation popup
                 // (the one we got through the OnInvitationReceivedListener).
+            	
                 this.acceptInviteToRoom(this.mIncomingInvitationId);
                 this.mIncomingInvitationId = null;
                 intent = Games.Invitations.getInvitationInboxIntent(this
@@ -192,12 +244,13 @@ public class MainActivity extends BaseGameActivity implements
                 this.startActivityForResult(intent, RC_INVITATION_INBOX);
                 break;
             case R.id.buttonChat:
-            	this.startActivity(new Intent(this, XMPPChat.class));
+            	this.startActivity(new Intent(this, Help.class));
                 break;
             case R.id.buttonQuickPlay:
                 // user wants to play against a random opponent right now
                 this.startQuickGame();
                 break;
+        }
         }
 
     }
@@ -605,9 +658,9 @@ public class MainActivity extends BaseGameActivity implements
         String subjectMaster = sM.getParticipantId();
         
         if (subjectMaster.contains(mMyId)){
-        this.startActivity(new Intent(this, Subject.class));
+        this.startActivity(new Intent(this, WelcomeSM.class));
         } else {
-        this.startActivity(new Intent(this, Loser.class));
+        this.startActivity(new Intent(this, PlayerWaiting.class));
         }
         // run the gameTick() method every second to update the game.
         final Handler h = new Handler();

@@ -13,5 +13,6 @@
     <color name="dark_grey">#212121</color>
     <color name="blue">#33b4e5</color>
     <color name="offwhite">#eeeeee</color>
+    <color name="red">#FF0000</color>
     
 </resources>

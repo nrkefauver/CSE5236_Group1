@@ -11,12 +11,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class Subject extends Activity implements OnClickListener {
 	
 	TextView timeSub;
 	boolean active = false;
+	public static String subjectString = "";
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +29,10 @@ public class Subject extends Activity implements OnClickListener {
 		View btnNext=findViewById(R.id.imageNext);
 		btnNext.setOnClickListener(this);
 		
+		
 		timeSub=(TextView)findViewById(R.id.timeSub1);
 
-	    new CountDownTimer(10000, 1000) { 
+	    new CountDownTimer(20000, 1000) { 
 
 	        public void onTick(long secondsUntilFinished) {
 
@@ -83,11 +87,15 @@ public class Subject extends Activity implements OnClickListener {
 		}
 	}
 	
+
+				
 	@Override
 	public void onClick(View v) {
-		 //btnEdit   = (EditText)findViewById(R.id.editText1);
+		
 		switch(v.getId())
 		{	case R.id.imageNext:
+			EditText subjectM = (EditText)findViewById(R.id.editText1);
+			subjectString = subjectM.getText().toString();
 			startActivity(new Intent(this, SMRoundOne.class));
 			active = true;
 			break;

@@ -52,11 +52,11 @@
         android:textSize="65dp" />
 
        <ImageButton
-           android:id="@+id/imageNext"
-           android:layout_width="100dp"
-           android:layout_height="wrap_content"
+           android:id="@+id/imageNext1"
+           android:layout_width="150dp"
+           android:layout_height="50dp"
            android:layout_alignParentBottom="true"
-           android:layout_alignParentRight="true"
+           android:layout_alignRight="@+id/textView1"
            android:src="@drawable/ic_next" />
 
      </RelativeLayout>
