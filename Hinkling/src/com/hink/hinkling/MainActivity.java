@@ -210,7 +210,7 @@ public class MainActivity extends BaseGameActivity implements
 
     void startQuickGame() {
         // quick-start a game with 1 randomly selected opponent
-        final int MIN_OPPONENTS = 1, MAX_OPPONENTS = 1;
+        final int MIN_OPPONENTS = 1, MAX_OPPONENTS = 3;
         Bundle autoMatchCriteria = RoomConfig.createAutoMatchCriteria(
                 MIN_OPPONENTS, MAX_OPPONENTS, 0);
         RoomConfig.Builder rtmConfigBuilder = RoomConfig.builder(this);
