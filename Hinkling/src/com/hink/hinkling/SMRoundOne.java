@@ -21,7 +21,7 @@ public class SMRoundOne extends Activity implements OnClickListener {
 	TextView text1;
 	ImageView imgFavorite;
 	public static boolean go = false;
-
+	public static boolean activeRoundOne = false;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -112,6 +112,7 @@ public class SMRoundOne extends Activity implements OnClickListener {
 		{	case R.id.imageNext1:
 			go = true;
 			this.startActivity(new Intent(this, XMPPChat.class));
+			activeRoundOne = true;
 			break;
 		}
 	}

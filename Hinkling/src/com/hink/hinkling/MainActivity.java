@@ -66,7 +66,8 @@ public class MainActivity extends BaseGameActivity implements
     final static int RC_SELECT_PLAYERS = 10000;
     final static int RC_INVITATION_INBOX = 10001;
     final static int RC_WAITING_ROOM = 10002;
-
+    public static String subjectMaster = "";
+    
 
     
     // Room ID where the currently active game is taking place; null if we're
@@ -655,12 +656,13 @@ public class MainActivity extends BaseGameActivity implements
         switchToScreen(R.id.screen_game);
         
         Participant sM = mParticipants.get(1);
-        String subjectMaster = sM.getParticipantId();
+     subjectMaster = sM.getParticipantId();
         if (subjectMaster.contains(mMyId)){
         this.startActivity(new Intent(this, WelcomeSM.class));
         } else {
         this.startActivity(new Intent(this, PlayerWaiting.class));
         }
+       
         // run the gameTick() method every second to update the game.
         final Handler h = new Handler();
         h.postDelayed(new Runnable() {

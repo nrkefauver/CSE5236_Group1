@@ -19,8 +19,8 @@ public class Settings extends ActionBarActivity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_settings);
-		
-		View btnSound= findViewById(R.id.buttonSound);
+
+		View btnSound = findViewById(R.id.buttonSound);
 		btnSound.setOnClickListener(this);
 		View btnHelp = findViewById(R.id.buttonHelp);
 		btnHelp.setOnClickListener(this);
@@ -68,19 +68,20 @@ public class Settings extends ActionBarActivity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-switch(v.getId())
-		
-		{	case R.id.buttonSound:
+		switch (v.getId())
+
+		{
+		case R.id.buttonSound:
 			startActivity(new Intent(this, Audio.class));
 			break;
 		case R.id.buttonHelp:
-			startActivity(new Intent(this, Help.class));
+			startActivity(new Intent(this, PRound1.class));
 			break;
 		case R.id.buttonBack:
 			startActivity(new Intent(this, MainActivity.class));
 			break;
-		
-	}
 
-}
+		}
+
+	}
 }

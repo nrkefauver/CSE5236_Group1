@@ -2,6 +2,7 @@ package com.hink.hinkling;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -55,6 +56,7 @@ public class XMPPChat extends Activity {
     private EditText mSendText;
     private ListView mList;
     private XMPPConnection connection;
+    public static Message incomingmessage = null;
 
     /**
      * Called with the activity is first created.
@@ -158,7 +160,7 @@ public class XMPPChat extends Activity {
         // Dialog for getting the xmpp settings
         mDialog = new SettingsDialog(this);
 
-
+      
         // Set a listener to send a chat text message
         Button send = (Button) this.findViewById(R.id.send);
         send.setOnClickListener(new View.OnClickListener() {
@@ -171,10 +173,13 @@ public class XMPPChat extends Activity {
             		to = mRecipient;
                 String text = mSendText.getText().toString();
                  Log.i("XMPPChat", "Sending text [" + text + "] to [" +  to + "]");
-                 
-                 
-               Message msg = new Message( Rec.get(to), Message.Type.chat);
+                 Message msg = new Message( Rec.get(to), Message.Type.chat);
+               if(SMRoundOne.activeRoundOne == true){
+            	   
+                msg.setBody("actvateRoundOne");
+               }else{     
                 msg.setBody(text);
+               }
                 if (connection != null) {
                 	connection.sendPacket(msg);
                 	messages.add(connection.getUser() + ":");
@@ -204,13 +209,16 @@ public class XMPPChat extends Activity {
             PacketFilter filter = new MessageTypeFilter(Message.Type.chat);
             connection.addPacketListener(new PacketListener() {
                 public void processPacket(Packet packet) {
-                    Message message = (Message) packet;
+                   Message message = (Message) packet;
                     if (message.getBody() != null) {
                         String fromName = StringUtils.parseBareAddress(message.getFrom());
                         Log.i("XMPPChat", "Got text [" + message.getBody() + "] from [" + fromName + "]");
                         messages.add(fromName + ":");
+                        incomingmessage.getBody();
+                        next();
                         messages.add(message.getBody());
                         // Add the incoming message to the list view
+                      
                         mHandler.post(new Runnable() {
                             public void run() {
                                 setListAdapter();
@@ -220,6 +228,7 @@ public class XMPPChat extends Activity {
                 }
             }, filter);
         }
+     
     }
 
     private void setListAdapter
@@ -230,5 +239,14 @@ public class XMPPChat extends Activity {
         mList.setAdapter(adapter);
     }
     
-
+    public void next(){
+    	  if(XMPPChat.incomingmessage.getBody().contains("activateRoundOne")){
+          	  if (MainActivity.subjectMaster.contains(MainActivity.mMyId)){
+          	        this.startActivity(new Intent(this, SMWaiting.class));
+          	        
+          	        } else {
+          	        this.startActivity(new Intent(this, PRound1.class));
+          	        }
+            }
+}
 }

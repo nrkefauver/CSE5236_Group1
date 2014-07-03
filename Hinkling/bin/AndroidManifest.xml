@@ -16,9 +16,12 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
-    <permission android:name="com.parse.tutorials.pushnotifications.permission.C2D_MESSAGE"
-		android:protectionLevel="signature" />
-	<uses-permission android:name="com.parse.tutorials.pushnotifications.permission.C2D_MESSAGE"/>
+
+    <permission
+        android:name="com.parse.tutorials.pushnotifications.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.parse.tutorials.pushnotifications.permission.C2D_MESSAGE" />
 
     <uses-feature android:name="android.hardware.camera" />
 
@@ -28,7 +31,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.hink.hinkling.SplashScreen"
+            android:name=".SplashScreen"
             android:label="@string/app_name"
             android:launchMode="standard"
             android:screenOrientation="portrait" >
@@ -39,7 +42,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.hink.hinkling.Login"
+            android:name=".Login"
             android:label="@string/app_name"
             android:launchMode="standard"
             android:permission="com.hink.hinkling.LAUNCHACTIVITY"
@@ -49,11 +52,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.hink.hinkling.Call_camera"
+            android:name=".Call_camera"
             android:label="@string/title_activity_call_camera" >
         </activity>
         <activity
-            android:name="com.hink.hinkling.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:launchMode="standard"
             android:permission="com.hink.hinkling.LAUNCHACTIVITY"
@@ -65,47 +68,47 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.hink.hinkling.Settings"
+            android:name=".Settings"
             android:label="@string/title_activity_settings" >
         </activity>
         <activity
-            android:name="com.hink.hinkling.GameSession"
+            android:name=".GameSession"
             android:label="@string/title_activity_game_session" >
         </activity>
         <activity
-            android:name="com.hink.hinkling.Audio"
+            android:name=".Audio"
             android:label="@string/title_activity_audio" >
         </activity>
         <activity
-            android:name="com.hink.hinkling.Help"
+            android:name=".Help"
             android:label="@string/title_activity_help" >
         </activity>
         <activity
-            android:name="com.hink.hinkling.MyPlaybackService"
+            android:name=".MyPlaybackService"
             android:label="@string/title_activity_my_playback_service" >
         </activity>
         <activity
-            android:name="com.hink.hinkling.Round"
+            android:name=".Round"
             android:label="@string/title_activity_round" >
         </activity>
         <activity
-            android:name="com.hink.hinkling.RoundOne"
+            android:name=".RoundOne"
             android:label="@string/title_activity_round_one" >
         </activity>
         <activity
-            android:name="com.hink.hinkling.PreGameSession"
+            android:name=".PreGameSession"
             android:label="@string/title_activity_pre_game_session" >
         </activity>
         <activity
-            android:name="com.hink.hinkling.PlayerSearch"
+            android:name=".PlayerSearch"
             android:label="@string/title_activity_player_search" >
         </activity>
         <activity
-            android:name="com.hink.hinkling.SMRoundOne"
+            android:name=".SMRoundOne"
             android:label="@string/title_activity_smround_one" >
         </activity>
         <activity
-            android:name="com.hink.hinkling.Loser"
+            android:name=".Loser"
             android:label="@string/app_name"
             android:launchMode="standard"
             android:permission="com.hink.hinkling.LAUNCHACTIVITY"
@@ -117,11 +120,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.hink.hinkling.EndGameSession"
+            android:name=".EndGameSession"
             android:label="@string/title_activity_end_game_session" >
         </activity>
         <activity
-            android:name="com.hink.hinkling.Subject"
+            android:name=".Subject"
             android:label="@string/title_activity_subject"
             android:permission="com.hink.hinkling.LAUNCHACTIVITY" >
             <intent-filter>
@@ -131,27 +134,27 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.hink.hinkling.GameOne"
+            android:name=".GameOne"
             android:label="@string/title_activity_game_one" >
         </activity>
         <activity
-            android:name="com.hink.hinkling.ViewProfile"
+            android:name=".ViewProfile"
             android:label="@string/title_activity_view_profile" >
         </activity>
         <activity
-            android:name="com.hink.hinkling.CreateProfile"
+            android:name=".CreateProfile"
             android:label="@string/title_activity_create_profile" >
         </activity>
         <activity
-            android:name="com.hink.hinkling.Chat"
+            android:name=".Chat"
             android:label="@string/title_activity_chat" >
         </activity>
         <activity
-            android:name="com.hink.hinkling.SettingsDialog"
+            android:name=".SettingsDialog"
             android:label="@string/title_activity_settings_dialog" >
         </activity>
         <activity
-            android:name="com.hink.hinkling.XMPPChat"
+            android:name=".XMPPChat"
             android:label="@string/xmppchat" >
         </activity>
 
@@ -178,19 +181,19 @@
             android:value="@string/app_id" />
 
         <activity
-            android:name="com.hink.hinkling.SMSelect"
+            android:name=".SMSelect"
             android:label="@string/title_activity_smselect" >
         </activity>
         <activity
-            android:name="com.hink.hinkling.SMGameSession"
+            android:name=".SMGameSession"
             android:label="@string/title_activity_smgame_session" >
         </activity>
         <activity
-            android:name="com.hink.hinkling.PlayerGameSession"
+            android:name=".PlayerGameSession"
             android:label="@string/title_activity_player_game_session" >
         </activity>
         <activity
-            android:name="com.hink.hinkling.PlayerWaiting"
+            android:name=".PlayerWaiting"
             android:label="@string/title_activity_player_waiting"
             android:permission="com.hink.hinkling.LAUNCHACTIVITY" >
             <intent-filter>
@@ -200,12 +203,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.hink.hinkling.Security"
+            android:name=".Security"
             android:label="@string/title_activity_security"
             android:windowSoftInputMode="stateVisible|adjustResize" >
         </activity>
         <activity
-            android:name="com.hink.hinkling.WelcomeSM"
+            android:name=".WelcomeSM"
             android:label="@string/title_activity_welcome_sm"
             android:permission="com.hink.hinkling.LAUNCHACTIVITY" >
             <intent-filter>
@@ -215,30 +218,38 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.hink.hinkling.ScreenClearMiniGame"
+            android:name=".ScreenClearMiniGame"
             android:label="@string/title_activity_screen_clear_mini_game" >
         </activity>
-          <service android:name="com.parse.PushService" />
-		<receiver android:name="com.parse.ParseBroadcastReceiver">
-			<intent-filter>
-				<action android:name="android.intent.action.BOOT_COMPLETED" />
-				<action android:name="android.intent.action.USER_PRESENT" />
-			</intent-filter>
-		</receiver>
-		<receiver android:name="com.parse.GcmBroadcastReceiver"
-			android:permission="com.google.android.c2dm.permission.SEND">
-			<intent-filter>
-				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
-				<action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
-				<!--
+        <service android:name="com.parse.PushService" />
+
+        <receiver android:name="com.parse.ParseBroadcastReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.parse.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <!--
 				  IMPORTANT: If you change the package name of this sample app,
 				  change "com.parse.tutorials.pushnotifications" in the lines
-				  below to match the new package name.
-				-->
-				<category android:name="com.parse.tutorials.pushnotifications" />
-			</intent-filter>
-		</receiver>
+				  below to match the new package name.
+                -->
+                <category android:name="com.parse.tutorials.pushnotifications" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".SMWaiting"
+            android:label="@string/title_activity_smwaiting" >
+        </activity>
     </application>
 
 </manifest>
