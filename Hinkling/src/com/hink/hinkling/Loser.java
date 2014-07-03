@@ -2,6 +2,7 @@ package com.hink.hinkling;
 
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -52,6 +53,19 @@ public class Loser extends ActionBarActivity {
 			View rootView = inflater.inflate(R.layout.fragment_loser,
 					container, false);
 			return rootView;
+		}
+	}
+
+	public void onClick(View v) {
+		switch (v.getId()) {
+
+		case R.id.main:
+			startActivity(new Intent(this, MainActivity.class));
+			break;
+		case R.id.exitBtn:
+			finish();
+			break;
+
 		}
 	}
 

@@ -3,15 +3,18 @@ package com.hink.hinkling;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.os.Build;
 
-public class ViewProfile extends ActionBarActivity {
+public class ViewProfile extends ActionBarActivity implements
+		View.OnClickListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +25,10 @@ public class ViewProfile extends ActionBarActivity {
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
+
+		View backBtn = (Button) findViewById(R.id.backButton);
+		backBtn.setOnClickListener(this);
+
 	}
 
 	@Override
@@ -58,6 +65,17 @@ public class ViewProfile extends ActionBarActivity {
 			View rootView = inflater.inflate(R.layout.fragment_view_profile,
 					container, false);
 			return rootView;
+		}
+	}
+
+	@Override
+	public void onClick(View v) {
+
+		switch (v.getId()) {
+		case R.id.backButton:
+			// user wants to sign in
+			startActivity(new Intent("com.hink.hinkling.MainActivity"));
+			break;
 		}
 	}
 

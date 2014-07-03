@@ -3,6 +3,6 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bgr"
     tools:context="com.hink.hinkling.Audio"
     tools:ignore="MergeRootFrame" />
-

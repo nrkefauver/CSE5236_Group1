@@ -1,44 +1,42 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/bgb"
-    tools:context="com.hink.hinkling.Settings"
-    tools:ignore="MergeRootFrame" >
+    android:layout_height="match_parent" >
 
-    <Button
-        android:id="@+id/buttonSound"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/audio"
-        android:textColor="@color/yellow"
-        android:layout_marginTop="122dp"
-         />
+    <LinearLayout
+        android:id="@+id/screen_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bgr"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:textSize="15.5sp" >
 
-    <Button
-        android:id="@+id/buttonHelp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/buttonSound"
-         android:text="@string/help"
-        android:textColor="@color/yellow"
-       />
+        <Button
+            android:id="@+id/buttonSound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:gravity="center"
+            android:text="@string/audio"
+            android:textColor="@color/yellow" />
 
-    <Button
-        android:id="@+id/buttonBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/buttonHelp"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/buttonHelp"
-        android:textColor="@color/yellow"
-        android:text="@string/back" />
+        <Button
+            android:id="@+id/buttonHelp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/help"
+            android:textColor="@color/yellow" />
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/buttonBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:text="@string/mainMenu"
+            android:textColor="@color/yellow" />
+    </LinearLayout>
 
+</FrameLayout>
