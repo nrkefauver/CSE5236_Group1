@@ -1,0 +1,35 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgg"
+    tools:context="com.hink.hinkling.WelcomeSM"
+    tools:ignore="MergeRootFrame" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="94dp"
+        android:text="Get your subject ready!"
+        android:textAppearance="@style/AppBaseTheme"
+        android:textColor="@color/yellow"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="86dp"
+        android:text="WELCOME SUBJECT MASTER"
+        android:textAppearance="@style/AppBaseTheme"
+        android:textColor="@color/yellow"
+        android:textSize="50dp" />
+
+</RelativeLayout>
+
