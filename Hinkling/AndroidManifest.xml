@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="14"
+        android:minSdkVersion="16"
         android:targetSdkVersion="19" />
 
     <uses-permission android:name="android.permission.CAMERA" />
@@ -217,7 +217,27 @@
             android:name=".ScreenClearMiniGame"
             android:label="@string/title_activity_screen_clear_mini_game" >
         </activity>
-
+	<activity android:configChanges="orientation|screenSize" 
+            android:label="@string/title_activity_chat" 
+            android:name="com.hink.hinkling.chat.GuestbookActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.DEFAULT"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.hink.hinkling.chat.IntroductionActivity" 
+            android:parentActivityName="com.hink.hinkling.chat.GuestbookActivity" 
+            android:screenOrientation="portrait">
+            <!-- If you use the Android SDK 15 or less, the attributes android:parentActivityName doesn't work -->
+            <meta-data android:name="android.support.PARENT_ACTIVITY" 
+                android:value="com.hink.hinkling.chat.GuestbookActivity"/>
+        </activity>
+        
+        <activity
+            android:name=".SMWaiting"
+            android:label="@string/title_activity_smwaiting" >
+        </activity>
         <service android:name="com.parse.PushService" />
 
         <receiver android:name="com.parse.ParseBroadcastReceiver" >
@@ -242,10 +262,7 @@
             </intent-filter>
         </receiver>
 
-        <activity
-            android:name=".SMWaiting"
-            android:label="@string/title_activity_smwaiting" >
-        </activity>
+        
     </application>
 
 </manifest>
