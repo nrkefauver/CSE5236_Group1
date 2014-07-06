@@ -153,10 +153,6 @@
             android:name=".SettingsDialog"
             android:label="@string/title_activity_settings_dialog" >
         </activity>
-        <activity
-            android:name=".XMPPChat"
-            android:label="@string/xmppchat" >
-        </activity>
 
         <service android:name="com.google.cloud.backend.GCMIntentService" />
 

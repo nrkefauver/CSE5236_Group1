@@ -47,6 +47,7 @@ import com.google.android.gms.games.multiplayer.realtime.RoomConfig;
 import com.google.android.gms.games.multiplayer.realtime.RoomStatusUpdateListener;
 import com.google.android.gms.games.multiplayer.realtime.RoomUpdateListener;
 import com.google.example.games.basegameutils.BaseGameActivity;
+import com.hink.hinkling.chat.GuestbookActivity;
 
 public class MainActivity extends BaseGameActivity implements
         View.OnClickListener, RealTimeMessageReceivedListener,
@@ -246,6 +247,9 @@ public class MainActivity extends BaseGameActivity implements
                 break;
             case R.id.buttonChat:
             	this.startActivity(new Intent(this, Help.class));
+                break;
+            case R.id.buttonSettings:
+            	this.startActivity(new Intent(this, GuestbookActivity.class));
                 break;
             case R.id.buttonQuickPlay:
                 // user wants to play against a random opponent right now
