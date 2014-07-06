@@ -16,7 +16,7 @@
  * Modify at your own risk.
  */
 
-package com.google.cloud.backend.android.mobilebackend;
+package com.hink.hinkling.backend.android.mobilebackend;
 
 /**
  * Mobilebackend request.

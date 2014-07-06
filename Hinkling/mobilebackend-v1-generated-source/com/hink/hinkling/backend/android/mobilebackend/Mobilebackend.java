@@ -16,7 +16,7 @@
  * Modify at your own risk.
  */
 
-package com.google.cloud.backend.android.mobilebackend;
+package com.hink.hinkling.backend.android.mobilebackend;
 
 /**
  * Service definition for Mobilebackend (v1).
@@ -262,7 +262,7 @@ public class Mobilebackend extends com.google.api.client.googleapis.services.jso
       return result;
     }
 
-    public class GetDownloadUrl extends MobilebackendRequest<com.google.cloud.backend.android.mobilebackend.model.BlobAccess> {
+    public class GetDownloadUrl extends MobilebackendRequest<com.hink.hinkling.backend.android.mobilebackend.model.BlobAccess> {
 
       private static final String REST_PATH = "blobs/downloads/{bucketName}/{objectPath}";
 
@@ -280,7 +280,7 @@ public class Mobilebackend extends com.google.api.client.googleapis.services.jso
        * @since 1.13
        */
       protected GetDownloadUrl(java.lang.String bucketName, java.lang.String objectPath) {
-        super(Mobilebackend.this, "GET", REST_PATH, null, com.google.cloud.backend.android.mobilebackend.model.BlobAccess.class);
+        super(Mobilebackend.this, "GET", REST_PATH, null, com.hink.hinkling.backend.android.mobilebackend.model.BlobAccess.class);
         this.bucketName = com.google.api.client.util.Preconditions.checkNotNull(bucketName, "Required parameter bucketName must be specified.");
         this.objectPath = com.google.api.client.util.Preconditions.checkNotNull(objectPath, "Required parameter objectPath must be specified.");
       }
@@ -383,7 +383,7 @@ public class Mobilebackend extends com.google.api.client.googleapis.services.jso
       return result;
     }
 
-    public class GetUploadUrl extends MobilebackendRequest<com.google.cloud.backend.android.mobilebackend.model.BlobAccess> {
+    public class GetUploadUrl extends MobilebackendRequest<com.hink.hinkling.backend.android.mobilebackend.model.BlobAccess> {
 
       private static final String REST_PATH = "blobs/uploads/{bucketName}/{objectPath}";
 
@@ -402,7 +402,7 @@ public class Mobilebackend extends com.google.api.client.googleapis.services.jso
        * @since 1.13
        */
       protected GetUploadUrl(java.lang.String bucketName, java.lang.String objectPath, java.lang.String accessMode) {
-        super(Mobilebackend.this, "GET", REST_PATH, null, com.google.cloud.backend.android.mobilebackend.model.BlobAccess.class);
+        super(Mobilebackend.this, "GET", REST_PATH, null, com.hink.hinkling.backend.android.mobilebackend.model.BlobAccess.class);
         this.bucketName = com.google.api.client.util.Preconditions.checkNotNull(bucketName, "Required parameter bucketName must be specified.");
         this.objectPath = com.google.api.client.util.Preconditions.checkNotNull(objectPath, "Required parameter objectPath must be specified.");
         this.accessMode = com.google.api.client.util.Preconditions.checkNotNull(accessMode, "Required parameter accessMode must be specified.");
@@ -557,7 +557,7 @@ public class Mobilebackend extends com.google.api.client.googleapis.services.jso
       return result;
     }
 
-    public class Delete extends MobilebackendRequest<com.google.cloud.backend.android.mobilebackend.model.EntityDto> {
+    public class Delete extends MobilebackendRequest<com.hink.hinkling.backend.android.mobilebackend.model.EntityDto> {
 
       private static final String REST_PATH = "CloudEntities/{kind}/{id}";
 
@@ -575,7 +575,7 @@ public class Mobilebackend extends com.google.api.client.googleapis.services.jso
        * @since 1.13
        */
       protected Delete(java.lang.String kind, java.lang.String id) {
-        super(Mobilebackend.this, "DELETE", REST_PATH, null, com.google.cloud.backend.android.mobilebackend.model.EntityDto.class);
+        super(Mobilebackend.this, "DELETE", REST_PATH, null, com.hink.hinkling.backend.android.mobilebackend.model.EntityDto.class);
         this.kind = com.google.api.client.util.Preconditions.checkNotNull(kind, "Required parameter kind must be specified.");
         this.id = com.google.api.client.util.Preconditions.checkNotNull(id, "Required parameter id must be specified.");
       }
@@ -656,16 +656,16 @@ public class Mobilebackend extends com.google.api.client.googleapis.services.jso
      * This request holds the parameters needed by the the mobilebackend server.  After setting any
      * optional parameters, call the {@link DeleteAll#execute()} method to invoke the remote operation.
      *
-     * @param content the {@link com.google.cloud.backend.android.mobilebackend.model.EntityListDto}
+     * @param content the {@link com.hink.hinkling.backend.android.mobilebackend.model.EntityListDto}
      * @return the request
      */
-    public DeleteAll deleteAll(com.google.cloud.backend.android.mobilebackend.model.EntityListDto content) throws java.io.IOException {
+    public DeleteAll deleteAll(com.hink.hinkling.backend.android.mobilebackend.model.EntityListDto content) throws java.io.IOException {
       DeleteAll result = new DeleteAll(content);
       initialize(result);
       return result;
     }
 
-    public class DeleteAll extends MobilebackendRequest<com.google.cloud.backend.android.mobilebackend.model.EntityListDto> {
+    public class DeleteAll extends MobilebackendRequest<com.hink.hinkling.backend.android.mobilebackend.model.EntityListDto> {
 
       private static final String REST_PATH = "CloudEntities/deleteAll";
 
@@ -678,11 +678,11 @@ public class Mobilebackend extends com.google.api.client.googleapis.services.jso
        * DeleteAll#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
        * must be called to initialize this instance immediately after invoking the constructor. </p>
        *
-       * @param content the {@link com.google.cloud.backend.android.mobilebackend.model.EntityListDto}
+       * @param content the {@link com.hink.hinkling.backend.android.mobilebackend.model.EntityListDto}
        * @since 1.13
        */
-      protected DeleteAll(com.google.cloud.backend.android.mobilebackend.model.EntityListDto content) {
-        super(Mobilebackend.this, "POST", REST_PATH, content, com.google.cloud.backend.android.mobilebackend.model.EntityListDto.class);
+      protected DeleteAll(com.hink.hinkling.backend.android.mobilebackend.model.EntityListDto content) {
+        super(Mobilebackend.this, "POST", REST_PATH, content, com.hink.hinkling.backend.android.mobilebackend.model.EntityListDto.class);
       }
 
       @Override
@@ -741,7 +741,7 @@ public class Mobilebackend extends com.google.api.client.googleapis.services.jso
       return result;
     }
 
-    public class Get extends MobilebackendRequest<com.google.cloud.backend.android.mobilebackend.model.EntityDto> {
+    public class Get extends MobilebackendRequest<com.hink.hinkling.backend.android.mobilebackend.model.EntityDto> {
 
       private static final String REST_PATH = "CloudEntities/{kind}/{id}";
 
@@ -758,7 +758,7 @@ public class Mobilebackend extends com.google.api.client.googleapis.services.jso
        * @since 1.13
        */
       protected Get(java.lang.String kind, java.lang.String id) {
-        super(Mobilebackend.this, "GET", REST_PATH, null, com.google.cloud.backend.android.mobilebackend.model.EntityDto.class);
+        super(Mobilebackend.this, "GET", REST_PATH, null, com.hink.hinkling.backend.android.mobilebackend.model.EntityDto.class);
         this.kind = com.google.api.client.util.Preconditions.checkNotNull(kind, "Required parameter kind must be specified.");
         this.id = com.google.api.client.util.Preconditions.checkNotNull(id, "Required parameter id must be specified.");
       }
@@ -849,16 +849,16 @@ public class Mobilebackend extends com.google.api.client.googleapis.services.jso
      * This request holds the parameters needed by the the mobilebackend server.  After setting any
      * optional parameters, call the {@link GetAll#execute()} method to invoke the remote operation.
      *
-     * @param content the {@link com.google.cloud.backend.android.mobilebackend.model.EntityListDto}
+     * @param content the {@link com.hink.hinkling.backend.android.mobilebackend.model.EntityListDto}
      * @return the request
      */
-    public GetAll getAll(com.google.cloud.backend.android.mobilebackend.model.EntityListDto content) throws java.io.IOException {
+    public GetAll getAll(com.hink.hinkling.backend.android.mobilebackend.model.EntityListDto content) throws java.io.IOException {
       GetAll result = new GetAll(content);
       initialize(result);
       return result;
     }
 
-    public class GetAll extends MobilebackendRequest<com.google.cloud.backend.android.mobilebackend.model.EntityListDto> {
+    public class GetAll extends MobilebackendRequest<com.hink.hinkling.backend.android.mobilebackend.model.EntityListDto> {
 
       private static final String REST_PATH = "CloudEntities/getAll";
 
@@ -871,11 +871,11 @@ public class Mobilebackend extends com.google.api.client.googleapis.services.jso
        * GetAll#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
        * be called to initialize this instance immediately after invoking the constructor. </p>
        *
-       * @param content the {@link com.google.cloud.backend.android.mobilebackend.model.EntityListDto}
+       * @param content the {@link com.hink.hinkling.backend.android.mobilebackend.model.EntityListDto}
        * @since 1.13
        */
-      protected GetAll(com.google.cloud.backend.android.mobilebackend.model.EntityListDto content) {
-        super(Mobilebackend.this, "POST", REST_PATH, content, com.google.cloud.backend.android.mobilebackend.model.EntityListDto.class);
+      protected GetAll(com.hink.hinkling.backend.android.mobilebackend.model.EntityListDto content) {
+        super(Mobilebackend.this, "POST", REST_PATH, content, com.hink.hinkling.backend.android.mobilebackend.model.EntityListDto.class);
       }
 
       @Override
@@ -925,16 +925,16 @@ public class Mobilebackend extends com.google.api.client.googleapis.services.jso
      * optional parameters, call the {@link Insert#execute()} method to invoke the remote operation.
      *
      * @param kind
-     * @param content the {@link com.google.cloud.backend.android.mobilebackend.model.EntityDto}
+     * @param content the {@link com.hink.hinkling.backend.android.mobilebackend.model.EntityDto}
      * @return the request
      */
-    public Insert insert(java.lang.String kind, com.google.cloud.backend.android.mobilebackend.model.EntityDto content) throws java.io.IOException {
+    public Insert insert(java.lang.String kind, com.hink.hinkling.backend.android.mobilebackend.model.EntityDto content) throws java.io.IOException {
       Insert result = new Insert(kind, content);
       initialize(result);
       return result;
     }
 
-    public class Insert extends MobilebackendRequest<com.google.cloud.backend.android.mobilebackend.model.EntityDto> {
+    public class Insert extends MobilebackendRequest<com.hink.hinkling.backend.android.mobilebackend.model.EntityDto> {
 
       private static final String REST_PATH = "CloudEntities/insert/{kind}";
 
@@ -948,11 +948,11 @@ public class Mobilebackend extends com.google.api.client.googleapis.services.jso
        * be called to initialize this instance immediately after invoking the constructor. </p>
        *
        * @param kind
-       * @param content the {@link com.google.cloud.backend.android.mobilebackend.model.EntityDto}
+       * @param content the {@link com.hink.hinkling.backend.android.mobilebackend.model.EntityDto}
        * @since 1.13
        */
-      protected Insert(java.lang.String kind, com.google.cloud.backend.android.mobilebackend.model.EntityDto content) {
-        super(Mobilebackend.this, "POST", REST_PATH, content, com.google.cloud.backend.android.mobilebackend.model.EntityDto.class);
+      protected Insert(java.lang.String kind, com.hink.hinkling.backend.android.mobilebackend.model.EntityDto content) {
+        super(Mobilebackend.this, "POST", REST_PATH, content, com.hink.hinkling.backend.android.mobilebackend.model.EntityDto.class);
         this.kind = com.google.api.client.util.Preconditions.checkNotNull(kind, "Required parameter kind must be specified.");
       }
 
@@ -1017,16 +1017,16 @@ public class Mobilebackend extends com.google.api.client.googleapis.services.jso
      * This request holds the parameters needed by the the mobilebackend server.  After setting any
      * optional parameters, call the {@link InsertAll#execute()} method to invoke the remote operation.
      *
-     * @param content the {@link com.google.cloud.backend.android.mobilebackend.model.EntityListDto}
+     * @param content the {@link com.hink.hinkling.backend.android.mobilebackend.model.EntityListDto}
      * @return the request
      */
-    public InsertAll insertAll(com.google.cloud.backend.android.mobilebackend.model.EntityListDto content) throws java.io.IOException {
+    public InsertAll insertAll(com.hink.hinkling.backend.android.mobilebackend.model.EntityListDto content) throws java.io.IOException {
       InsertAll result = new InsertAll(content);
       initialize(result);
       return result;
     }
 
-    public class InsertAll extends MobilebackendRequest<com.google.cloud.backend.android.mobilebackend.model.EntityListDto> {
+    public class InsertAll extends MobilebackendRequest<com.hink.hinkling.backend.android.mobilebackend.model.EntityListDto> {
 
       private static final String REST_PATH = "CloudEntities/insertAll";
 
@@ -1039,11 +1039,11 @@ public class Mobilebackend extends com.google.api.client.googleapis.services.jso
        * InsertAll#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
        * must be called to initialize this instance immediately after invoking the constructor. </p>
        *
-       * @param content the {@link com.google.cloud.backend.android.mobilebackend.model.EntityListDto}
+       * @param content the {@link com.hink.hinkling.backend.android.mobilebackend.model.EntityListDto}
        * @since 1.13
        */
-      protected InsertAll(com.google.cloud.backend.android.mobilebackend.model.EntityListDto content) {
-        super(Mobilebackend.this, "POST", REST_PATH, content, com.google.cloud.backend.android.mobilebackend.model.EntityListDto.class);
+      protected InsertAll(com.hink.hinkling.backend.android.mobilebackend.model.EntityListDto content) {
+        super(Mobilebackend.this, "POST", REST_PATH, content, com.hink.hinkling.backend.android.mobilebackend.model.EntityListDto.class);
       }
 
       @Override
@@ -1092,16 +1092,16 @@ public class Mobilebackend extends com.google.api.client.googleapis.services.jso
      * This request holds the parameters needed by the the mobilebackend server.  After setting any
      * optional parameters, call the {@link List#execute()} method to invoke the remote operation.
      *
-     * @param content the {@link com.google.cloud.backend.android.mobilebackend.model.QueryDto}
+     * @param content the {@link com.hink.hinkling.backend.android.mobilebackend.model.QueryDto}
      * @return the request
      */
-    public List list(com.google.cloud.backend.android.mobilebackend.model.QueryDto content) throws java.io.IOException {
+    public List list(com.hink.hinkling.backend.android.mobilebackend.model.QueryDto content) throws java.io.IOException {
       List result = new List(content);
       initialize(result);
       return result;
     }
 
-    public class List extends MobilebackendRequest<com.google.cloud.backend.android.mobilebackend.model.EntityListDto> {
+    public class List extends MobilebackendRequest<com.hink.hinkling.backend.android.mobilebackend.model.EntityListDto> {
 
       private static final String REST_PATH = "CloudEntities/list";
 
@@ -1113,11 +1113,11 @@ public class Mobilebackend extends com.google.api.client.googleapis.services.jso
        * {@link List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
        * must be called to initialize this instance immediately after invoking the constructor. </p>
        *
-       * @param content the {@link com.google.cloud.backend.android.mobilebackend.model.QueryDto}
+       * @param content the {@link com.hink.hinkling.backend.android.mobilebackend.model.QueryDto}
        * @since 1.13
        */
-      protected List(com.google.cloud.backend.android.mobilebackend.model.QueryDto content) {
-        super(Mobilebackend.this, "POST", REST_PATH, content, com.google.cloud.backend.android.mobilebackend.model.EntityListDto.class);
+      protected List(com.hink.hinkling.backend.android.mobilebackend.model.QueryDto content) {
+        super(Mobilebackend.this, "POST", REST_PATH, content, com.hink.hinkling.backend.android.mobilebackend.model.EntityListDto.class);
       }
 
       @Override
@@ -1168,16 +1168,16 @@ public class Mobilebackend extends com.google.api.client.googleapis.services.jso
      *
      * @param kind
      * @param id
-     * @param content the {@link com.google.cloud.backend.android.mobilebackend.model.EntityDto}
+     * @param content the {@link com.hink.hinkling.backend.android.mobilebackend.model.EntityDto}
      * @return the request
      */
-    public Patch patch(java.lang.String kind, java.lang.String id, com.google.cloud.backend.android.mobilebackend.model.EntityDto content) throws java.io.IOException {
+    public Patch patch(java.lang.String kind, java.lang.String id, com.hink.hinkling.backend.android.mobilebackend.model.EntityDto content) throws java.io.IOException {
       Patch result = new Patch(kind, id, content);
       initialize(result);
       return result;
     }
 
-    public class Patch extends MobilebackendRequest<com.google.cloud.backend.android.mobilebackend.model.EntityDto> {
+    public class Patch extends MobilebackendRequest<com.hink.hinkling.backend.android.mobilebackend.model.EntityDto> {
 
       private static final String REST_PATH = "CloudEntities/update/{kind}";
 
@@ -1192,11 +1192,11 @@ public class Mobilebackend extends com.google.api.client.googleapis.services.jso
        *
        * @param kind
        * @param id
-       * @param content the {@link com.google.cloud.backend.android.mobilebackend.model.EntityDto}
+       * @param content the {@link com.hink.hinkling.backend.android.mobilebackend.model.EntityDto}
        * @since 1.13
        */
-      protected Patch(java.lang.String kind, java.lang.String id, com.google.cloud.backend.android.mobilebackend.model.EntityDto content) {
-        super(Mobilebackend.this, "PATCH", REST_PATH, content, com.google.cloud.backend.android.mobilebackend.model.EntityDto.class);
+      protected Patch(java.lang.String kind, java.lang.String id, com.hink.hinkling.backend.android.mobilebackend.model.EntityDto content) {
+        super(Mobilebackend.this, "PATCH", REST_PATH, content, com.hink.hinkling.backend.android.mobilebackend.model.EntityDto.class);
         this.kind = com.google.api.client.util.Preconditions.checkNotNull(kind, "Required parameter kind must be specified.");
         this.id = com.google.api.client.util.Preconditions.checkNotNull(id, "Required parameter id must be specified.");
       }
@@ -1278,16 +1278,16 @@ public class Mobilebackend extends com.google.api.client.googleapis.services.jso
      * optional parameters, call the {@link Update#execute()} method to invoke the remote operation.
      *
      * @param kind
-     * @param content the {@link com.google.cloud.backend.android.mobilebackend.model.EntityDto}
+     * @param content the {@link com.hink.hinkling.backend.android.mobilebackend.model.EntityDto}
      * @return the request
      */
-    public Update update(java.lang.String kind, com.google.cloud.backend.android.mobilebackend.model.EntityDto content) throws java.io.IOException {
+    public Update update(java.lang.String kind, com.hink.hinkling.backend.android.mobilebackend.model.EntityDto content) throws java.io.IOException {
       Update result = new Update(kind, content);
       initialize(result);
       return result;
     }
 
-    public class Update extends MobilebackendRequest<com.google.cloud.backend.android.mobilebackend.model.EntityDto> {
+    public class Update extends MobilebackendRequest<com.hink.hinkling.backend.android.mobilebackend.model.EntityDto> {
 
       private static final String REST_PATH = "CloudEntities/update/{kind}";
 
@@ -1301,11 +1301,11 @@ public class Mobilebackend extends com.google.api.client.googleapis.services.jso
        * be called to initialize this instance immediately after invoking the constructor. </p>
        *
        * @param kind
-       * @param content the {@link com.google.cloud.backend.android.mobilebackend.model.EntityDto}
+       * @param content the {@link com.hink.hinkling.backend.android.mobilebackend.model.EntityDto}
        * @since 1.13
        */
-      protected Update(java.lang.String kind, com.google.cloud.backend.android.mobilebackend.model.EntityDto content) {
-        super(Mobilebackend.this, "POST", REST_PATH, content, com.google.cloud.backend.android.mobilebackend.model.EntityDto.class);
+      protected Update(java.lang.String kind, com.hink.hinkling.backend.android.mobilebackend.model.EntityDto content) {
+        super(Mobilebackend.this, "POST", REST_PATH, content, com.hink.hinkling.backend.android.mobilebackend.model.EntityDto.class);
         this.kind = com.google.api.client.util.Preconditions.checkNotNull(kind, "Required parameter kind must be specified.");
       }
 
@@ -1370,16 +1370,16 @@ public class Mobilebackend extends com.google.api.client.googleapis.services.jso
      * This request holds the parameters needed by the the mobilebackend server.  After setting any
      * optional parameters, call the {@link UpdateAll#execute()} method to invoke the remote operation.
      *
-     * @param content the {@link com.google.cloud.backend.android.mobilebackend.model.EntityListDto}
+     * @param content the {@link com.hink.hinkling.backend.android.mobilebackend.model.EntityListDto}
      * @return the request
      */
-    public UpdateAll updateAll(com.google.cloud.backend.android.mobilebackend.model.EntityListDto content) throws java.io.IOException {
+    public UpdateAll updateAll(com.hink.hinkling.backend.android.mobilebackend.model.EntityListDto content) throws java.io.IOException {
       UpdateAll result = new UpdateAll(content);
       initialize(result);
       return result;
     }
 
-    public class UpdateAll extends MobilebackendRequest<com.google.cloud.backend.android.mobilebackend.model.EntityListDto> {
+    public class UpdateAll extends MobilebackendRequest<com.hink.hinkling.backend.android.mobilebackend.model.EntityListDto> {
 
       private static final String REST_PATH = "CloudEntities/updateAll";
 
@@ -1392,11 +1392,11 @@ public class Mobilebackend extends com.google.api.client.googleapis.services.jso
        * UpdateAll#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
        * must be called to initialize this instance immediately after invoking the constructor. </p>
        *
-       * @param content the {@link com.google.cloud.backend.android.mobilebackend.model.EntityListDto}
+       * @param content the {@link com.hink.hinkling.backend.android.mobilebackend.model.EntityListDto}
        * @since 1.13
        */
-      protected UpdateAll(com.google.cloud.backend.android.mobilebackend.model.EntityListDto content) {
-        super(Mobilebackend.this, "POST", REST_PATH, content, com.google.cloud.backend.android.mobilebackend.model.EntityListDto.class);
+      protected UpdateAll(com.hink.hinkling.backend.android.mobilebackend.model.EntityListDto content) {
+        super(Mobilebackend.this, "POST", REST_PATH, content, com.hink.hinkling.backend.android.mobilebackend.model.EntityListDto.class);
       }
 
       @Override

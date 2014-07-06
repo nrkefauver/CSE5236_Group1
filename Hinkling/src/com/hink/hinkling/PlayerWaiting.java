@@ -84,7 +84,7 @@ public class PlayerWaiting extends Activity  {
 	}
 	
 	public void runChat(){
-		this.startActivity(new Intent(this, XMPPChat.class));
+		this.startActivity(new Intent(this, PRound1.class));
 	}
 
 				

@@ -129,11 +129,11 @@ public class MainActivity extends BaseGameActivity implements
 // 			  	 securityUN.setInputType(InputType.TYPE_CLASS_TEXT);
 // 	 		      InputMethodManager sUN = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 // 			      sUN.showSoftInput(securityUN, InputMethodManager.SHOW_IMPLICIT);
- 			      XMPPChat.USERNAME = securityUN.getText().toString();
+ 			      //XMPPChat.USERNAME = securityUN.getText().toString();
 // 			      securityPW.setInputType(InputType.TYPE_CLASS_TEXT);
 // 			      InputMethodManager sPW = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 // 			      sPW.showSoftInput(securityPW, InputMethodManager.SHOW_IMPLICIT);   
- 	 		      XMPPChat.PASSWORD = securityPW.getText().toString();
+ 	 		      //XMPPChat.PASSWORD = securityPW.getText().toString();
  				break;
  			}
  	
@@ -208,7 +208,7 @@ public class MainActivity extends BaseGameActivity implements
     @Override
     public void onClick(View v) {
         Intent intent;
-        if(XMPPChat.PASSWORD.length() > 0 && XMPPChat.USERNAME.length() > 0){
+
         switch (v.getId()) {
             case R.id.button_sign_in:
                 // user wants to sign in
@@ -254,7 +254,6 @@ public class MainActivity extends BaseGameActivity implements
         }
         }
 
-    }
 
     /**
      * Called by the base class (BaseGameActivity) when sign-in succeeded. We

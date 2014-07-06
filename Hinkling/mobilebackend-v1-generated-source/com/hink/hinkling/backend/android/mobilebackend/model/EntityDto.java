@@ -16,7 +16,7 @@
  * Modify at your own risk.
  */
 
-package com.google.cloud.backend.android.mobilebackend.model;
+package com.hink.hinkling.backend.android.mobilebackend.model;
 
 /**
  * Model definition for EntityDto.

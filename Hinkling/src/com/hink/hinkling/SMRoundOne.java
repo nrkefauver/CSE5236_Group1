@@ -111,7 +111,7 @@ public class SMRoundOne extends Activity implements OnClickListener {
 		switch(v.getId())
 		{	case R.id.imageNext1:
 			go = true;
-			this.startActivity(new Intent(this, XMPPChat.class));
+			this.startActivity(new Intent(this, SMRoundTwo.class));
 			activeRoundOne = true;
 			break;
 		}

@@ -16,10 +16,10 @@
  * Modify at your own risk.
  */
 
-package com.google.cloud.backend.android.mobilebackend.model;
+package com.hink.hinkling.backend.android.mobilebackend.model;
 
 /**
- * Model definition for FilterDto.
+ * Model definition for BlobAccess.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the mobilebackend. For a detailed explanation see:
@@ -29,100 +29,79 @@ package com.google.cloud.backend.android.mobilebackend.model;
  * @author Google, Inc.
  */
 @SuppressWarnings("javadoc")
-public final class FilterDto extends com.google.api.client.json.GenericJson {
+public final class BlobAccess extends com.google.api.client.json.GenericJson {
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private Filter datastoreFilter;
+  private java.lang.String accessUrl;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private java.lang.String operator;
+  private java.lang.String mandatoryHeaders;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private java.util.List<FilterDto> subfilters;
-
-  /**
-   * The value may be {@code null}.
-   */
-  @com.google.api.client.util.Key
-  private java.util.List<java.lang.Object> values;
+  private java.lang.String shortLivedUrl;
 
   /**
    * @return value or {@code null} for none
    */
-  public Filter getDatastoreFilter() {
-    return datastoreFilter;
+  public java.lang.String getAccessUrl() {
+    return accessUrl;
   }
 
   /**
-   * @param datastoreFilter datastoreFilter or {@code null} for none
+   * @param accessUrl accessUrl or {@code null} for none
    */
-  public FilterDto setDatastoreFilter(Filter datastoreFilter) {
-    this.datastoreFilter = datastoreFilter;
+  public BlobAccess setAccessUrl(java.lang.String accessUrl) {
+    this.accessUrl = accessUrl;
     return this;
   }
 
   /**
    * @return value or {@code null} for none
    */
-  public java.lang.String getOperator() {
-    return operator;
+  public java.lang.String getMandatoryHeaders() {
+    return mandatoryHeaders;
   }
 
   /**
-   * @param operator operator or {@code null} for none
+   * @param mandatoryHeaders mandatoryHeaders or {@code null} for none
    */
-  public FilterDto setOperator(java.lang.String operator) {
-    this.operator = operator;
+  public BlobAccess setMandatoryHeaders(java.lang.String mandatoryHeaders) {
+    this.mandatoryHeaders = mandatoryHeaders;
     return this;
   }
 
   /**
    * @return value or {@code null} for none
    */
-  public java.util.List<FilterDto> getSubfilters() {
-    return subfilters;
+  public java.lang.String getShortLivedUrl() {
+    return shortLivedUrl;
   }
 
   /**
-   * @param subfilters subfilters or {@code null} for none
+   * @param shortLivedUrl shortLivedUrl or {@code null} for none
    */
-  public FilterDto setSubfilters(java.util.List<FilterDto> subfilters) {
-    this.subfilters = subfilters;
-    return this;
-  }
-
-  /**
-   * @return value or {@code null} for none
-   */
-  public java.util.List<java.lang.Object> getValues() {
-    return values;
-  }
-
-  /**
-   * @param values values or {@code null} for none
-   */
-  public FilterDto setValues(java.util.List<java.lang.Object> values) {
-    this.values = values;
+  public BlobAccess setShortLivedUrl(java.lang.String shortLivedUrl) {
+    this.shortLivedUrl = shortLivedUrl;
     return this;
   }
 
   @Override
-  public FilterDto set(String fieldName, Object value) {
-    return (FilterDto) super.set(fieldName, value);
+  public BlobAccess set(String fieldName, Object value) {
+    return (BlobAccess) super.set(fieldName, value);
   }
 
   @Override
-  public FilterDto clone() {
-    return (FilterDto) super.clone();
+  public BlobAccess clone() {
+    return (BlobAccess) super.clone();
   }
 
 }
