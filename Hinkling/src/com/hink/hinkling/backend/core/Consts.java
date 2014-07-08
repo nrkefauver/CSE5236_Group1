@@ -23,22 +23,22 @@ public interface Consts {
     /**
      * Set Project ID of your Google APIs Console Project.
      */
-    public static final String PROJECT_ID = "*** ENTER YOUR PROJECT ID ***";
+    public static final String PROJECT_ID = "hinkling-mobile";
 
     /**
      * Set Project Number of your Google APIs Console Project.
      */
-    public static final String PROJECT_NUMBER = "*** ENTER YOUR PROJECT NUMBER ***";
+    public static final String PROJECT_NUMBER = "380627629931";
 
     /**
      * Set your Web Client ID for authentication at backend.
      */
-    public static final String WEB_CLIENT_ID = "*** ENTER YOUR WEB CLIENT ID ***";
+    public static final String WEB_CLIENT_ID = "380627629931-aebanuh91lsd1tuvinfu7p1ur4h570v3.apps.googleusercontent.com";
 
     /**
      * Set default user authentication enabled or disabled.
      */
-    public static final boolean IS_AUTH_ENABLED = false;
+    public static final boolean IS_AUTH_ENABLED = true;
 
     /**
      * Auth audience for authentication on backend.

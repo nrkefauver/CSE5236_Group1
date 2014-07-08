@@ -1,268 +1,149 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.hink.hinkling"
-    android:versionCode="1"
-    android:versionName="1.0" >
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.hink.hinkling">
 
-    <uses-sdk
-        android:minSdkVersion="16"
-        android:targetSdkVersion="19" />
+    <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="19"/>
+    
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="com.hink.hinkling.backend.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
 
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="com.google.cloud.backend.permission.C2D_MESSAGE" />
-    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+  
 
-    <permission
-        android:name="com.parse.tutorials.pushnotifications.permission.C2D_MESSAGE"
-        android:protectionLevel="signature" />
+    <uses-feature android:name="android.hardware.camera"/>
 
-    <uses-permission android:name="com.parse.tutorials.pushnotifications.permission.C2D_MESSAGE" />
+    <permission android:name="com.hink.hinkling.permission.C2D_MESSAGE"
+     android:protectionLevel="signature"/>
 
-    <uses-feature android:name="android.hardware.camera" />
-
-    <application
-        android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
-        <activity
-            android:name=".SplashScreen"
-            android:label="@string/app_name"
-            android:launchMode="standard"
-            android:screenOrientation="portrait" >
+   <uses-permission android:name="com.hink.hinkling.permission.C2D_MESSAGE"/>
+   <application android:allowBackup="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:theme="@style/AppTheme">
+        <activity android:label="@string/app_name" android:launchMode="standard" android:name=".SplashScreen" android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Login"
-            android:label="@string/app_name"
-            android:launchMode="standard"
-            android:permission="com.hink.hinkling.LAUNCHACTIVITY"
-            android:screenOrientation="unspecified" >
+        <activity android:label="@string/app_name" android:launchMode="standard" android:name=".Login" android:permission="com.hink.hinkling.LAUNCHACTIVITY" android:screenOrientation="unspecified">
             <intent-filter>
-                <action android:name="com.hink.hinkling.Login" />
+                <action android:name="com.hink.hinkling.Login"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Call_camera"
-            android:label="@string/title_activity_call_camera" >
+        <activity android:label="@string/title_activity_call_camera" android:name=".Call_camera">
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_main"
-            android:launchMode="standard"
-            android:permission="com.hink.hinkling.LAUNCHACTIVITY"
-            android:screenOrientation="unspecified" >
+        <activity android:label="@string/title_activity_main" android:launchMode="standard" android:name=".MainActivity" android:permission="com.hink.hinkling.LAUNCHACTIVITY" android:screenOrientation="unspecified">
             <intent-filter>
-                <action android:name="com.hink.hinkling.MainActivity" />
+                <action android:name="com.hink.hinkling.MainActivity"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Settings"
-            android:label="@string/title_activity_settings" >
+        <activity android:label="@string/title_activity_settings" android:name=".Settings">
         </activity>
-        <activity
-            android:name=".GameSession"
-            android:label="@string/title_activity_game_session" >
+        <activity android:label="@string/title_activity_game_session" android:name=".GameSession">
         </activity>
-        <activity
-            android:name=".Audio"
-            android:label="@string/title_activity_audio" >
+        <activity android:label="@string/title_activity_audio" android:name=".Audio">
         </activity>
-        <activity
-            android:name=".Help"
-            android:label="@string/title_activity_help" >
+        <activity android:label="@string/title_activity_help" android:name=".Help">
         </activity>
-        <activity
-            android:name=".MyPlaybackService"
-            android:label="@string/title_activity_my_playback_service" >
+        <activity android:label="@string/title_activity_my_playback_service" android:name=".MyPlaybackService">
         </activity>
-        <activity
-            android:name=".Round"
-            android:label="@string/title_activity_round" >
+        <activity android:label="@string/title_activity_round" android:name=".Round">
         </activity>
-        <activity
-            android:name=".RoundOne"
-            android:label="@string/title_activity_round_one" >
+        <activity android:label="@string/title_activity_round_one" android:name=".RoundOne">
         </activity>
-        <activity
-            android:name=".PreGameSession"
-            android:label="@string/title_activity_pre_game_session" >
+        <activity android:label="@string/title_activity_pre_game_session" android:name=".PreGameSession">
         </activity>
-        <activity
-            android:name=".PlayerSearch"
-            android:label="@string/title_activity_player_search" >
+        <activity android:label="@string/title_activity_player_search" android:name=".PlayerSearch">
         </activity>
-        <activity
-            android:name=".SMRoundOne"
-            android:label="@string/title_activity_smround_one" >
+        <activity android:label="@string/title_activity_smround_one" android:name=".SMRoundOne">
         </activity>
-        <activity
-            android:name=".Loser"
-            android:label="@string/app_name"
-            android:launchMode="standard"
-            android:permission="com.hink.hinkling.LAUNCHACTIVITY"
-            android:screenOrientation="unspecified" >
+        <activity android:label="@string/app_name" android:launchMode="standard" android:name=".Loser" android:permission="com.hink.hinkling.LAUNCHACTIVITY" android:screenOrientation="unspecified">
             <intent-filter>
-                <action android:name="com.hink.hinkling.Loser" />
+                <action android:name="com.hink.hinkling.Loser"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name=".EndGameSession"
-            android:label="@string/title_activity_end_game_session" >
+        <activity android:label="@string/title_activity_end_game_session" android:name=".EndGameSession">
         </activity>
-        <activity
-            android:name=".Subject"
-            android:label="@string/title_activity_subject"
-            android:permission="com.hink.hinkling.LAUNCHACTIVITY" >
+        <activity android:label="@string/title_activity_subject" android:name=".Subject" android:permission="com.hink.hinkling.LAUNCHACTIVITY">
             <intent-filter>
-                <action android:name="com.hink.hinkling.Subject" />
+                <action android:name="com.hink.hinkling.Subject"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name=".GameOne"
-            android:label="@string/title_activity_game_one" >
+        <activity android:label="@string/title_activity_game_one" android:name=".GameOne">
         </activity>
-        <activity
-            android:name=".ViewProfile"
-            android:label="@string/title_activity_view_profile" >
+        <activity android:label="@string/title_activity_view_profile" android:name=".ViewProfile">
         </activity>
-        <activity
-            android:name=".CreateProfile"
-            android:label="@string/title_activity_create_profile" >
+        <activity android:label="@string/title_activity_create_profile" android:name=".CreateProfile">
         </activity>
-        <activity
-            android:name=".Chat"
-            android:label="@string/title_activity_chat" >
+        <activity android:label="@string/title_activity_chat" android:name=".Chat">
         </activity>
-        <activity
-            android:name=".SettingsDialog"
-            android:label="@string/title_activity_settings_dialog" >
+        <activity android:label="@string/title_activity_settings_dialog" android:name=".SettingsDialog">
         </activity>
 
-        <service android:name="com.google.cloud.backend.GCMIntentService" />
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.android.gms.games.APP_ID" android:value="@string/app_id"/>
 
-        <receiver
-            android:name="com.google.android.gcm.GCMBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND" >
+        <activity android:label="@string/title_activity_smselect" android:name=".SMSelect">
+        </activity>
+        <activity android:label="@string/title_activity_smgame_session" android:name=".SMGameSession">
+        </activity>
+        <activity android:label="@string/title_activity_player_game_session" android:name=".PlayerGameSession">
+        </activity>
+        <activity android:label="@string/title_activity_player_waiting" android:name=".PlayerWaiting" android:permission="com.hink.hinkling.LAUNCHACTIVITY">
             <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <action android:name="com.hink.hinkling.PlayerWaiting"/>
 
-                <category android:name="com.google.cloud.solutions.sampleapps.mobilebackend" />
-            </intent-filter>
-        </receiver>
-
-        <service android:name="com.google.cloud.backend.GCMIntentService" />
-
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-        <meta-data
-            android:name="com.google.android.gms.games.APP_ID"
-            android:value="@string/app_id" />
-
-        <activity
-            android:name=".SMSelect"
-            android:label="@string/title_activity_smselect" >
-        </activity>
-        <activity
-            android:name=".SMGameSession"
-            android:label="@string/title_activity_smgame_session" >
-        </activity>
-        <activity
-            android:name=".PlayerGameSession"
-            android:label="@string/title_activity_player_game_session" >
-        </activity>
-        <activity
-            android:name=".PlayerWaiting"
-            android:label="@string/title_activity_player_waiting"
-            android:permission="com.hink.hinkling.LAUNCHACTIVITY" >
-            <intent-filter>
-                <action android:name="com.hink.hinkling.PlayerWaiting" />
-
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Security"
-            android:label="@string/title_activity_security"
-            android:windowSoftInputMode="stateVisible|adjustResize" >
+        <activity android:label="@string/title_activity_security" android:name=".Security" android:windowSoftInputMode="stateVisible|adjustResize">
         </activity>
-        <activity
-            android:name=".WelcomeSM"
-            android:label="@string/title_activity_welcome_sm"
-            android:permission="com.hink.hinkling.LAUNCHACTIVITY" >
+        <activity android:label="@string/title_activity_welcome_sm" android:name=".WelcomeSM" android:permission="com.hink.hinkling.LAUNCHACTIVITY">
             <intent-filter>
-                <action android:name="com.hink.hinkling.WelcomeSM" />
+                <action android:name="com.hink.hinkling.WelcomeSM"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ScreenClearMiniGame"
-            android:label="@string/title_activity_screen_clear_mini_game" >
+        <activity android:label="@string/title_activity_screen_clear_mini_game" android:name=".ScreenClearMiniGame">
         </activity>
-	<activity android:configChanges="orientation|screenSize" 
-            android:label="@string/title_activity_chat" 
-            android:name="com.hink.hinkling.chat.GuestbookActivity">
+	<activity android:configChanges="orientation|screenSize" android:label="@string/title_activity_chat" android:name="com.hink.hinkling.chat.GuestbookActivity">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.hink.hinkling.chat.IntroductionActivity" 
-            android:parentActivityName="com.hink.hinkling.chat.GuestbookActivity" 
-            android:screenOrientation="portrait">
+        <activity android:name="com.hink.hinkling.chat.IntroductionActivity" android:parentActivityName="com.hink.hinkling.chat.GuestbookActivity" android:screenOrientation="portrait">
             <!-- If you use the Android SDK 15 or less, the attributes android:parentActivityName doesn't work -->
-            <meta-data android:name="android.support.PARENT_ACTIVITY" 
-                android:value="com.hink.hinkling.chat.GuestbookActivity"/>
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.hink.hinkling.chat.GuestbookActivity"/>
         </activity>
         
-        <activity
-            android:name=".SMWaiting"
-            android:label="@string/title_activity_smwaiting" >
+        <activity android:label="@string/title_activity_smwaiting" android:name=".SMWaiting">
         </activity>
-        <service android:name="com.parse.PushService" />
+         <service android:name="com.hink.hinkling.backend.GCMIntentService"/>
 
-        <receiver android:name="com.parse.ParseBroadcastReceiver" >
+        <receiver android:name="com.hink.hinkling.backend.GCMBroadcastReceiver" 
+            android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.intent.action.USER_PRESENT" />
-            </intent-filter>
-        </receiver>
-        <receiver
-            android:name="com.parse.GcmBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND" >
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-
-                <!--
-				  IMPORTANT: If you change the package name of this sample app,
-				  change "com.parse.tutorials.pushnotifications" in the lines
-				  below to match the new package name.
-                -->
-                <category android:name="com.parse.tutorials.pushnotifications" />
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
             </intent-filter>
         </receiver>
 
+        <service android:name="com.hink.hinkling.backend.GCMIntentService"/>
+
         
-    </application>
+        <service android:name=".GCMIntentService"/>
+        
+        <activity android:launchMode="singleTop" android:name=".RegisterActivity"/>
+</application>
 
 </manifest>

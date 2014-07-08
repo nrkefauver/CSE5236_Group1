@@ -94,6 +94,7 @@ public class GuestbookActivity extends Activity implements OnListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_main);
 
+        
         // Create the view
         mPostsView = (ListView) findViewById(R.id.posts_list);
         mEmptyView = (TextView) findViewById(R.id.no_messages);
@@ -121,7 +122,7 @@ public class GuestbookActivity extends Activity implements OnListener {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.layout.activity_chat_main, menu);
+        inflater.inflate(R.menu.activity_guest_book, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -208,7 +209,7 @@ public class GuestbookActivity extends Activity implements OnListener {
 
         // Add the splash screen fragment
             mSplashFragment = new SplashFragment();
-            fragmentTransaction.add(R.id.activity_main, mSplashFragment, SPLASH_FRAGMENT_TAG);
+            fragmentTransaction.add(R.id.activity_chat_main, mSplashFragment, SPLASH_FRAGMENT_TAG);
             fragmentTransaction.commit();
     }
 
