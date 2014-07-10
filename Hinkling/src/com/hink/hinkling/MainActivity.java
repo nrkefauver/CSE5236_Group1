@@ -180,7 +180,18 @@ public class MainActivity extends BaseGameActivity implements
             }
   
 
-});
+});Button music = (Button)popupView.findViewById(R.id.changeMusic);
+music.setOnClickListener(new Button.OnClickListener(){
+	 
+	 
+@Override
+public void onClick(View v) {
+
+
+SplashScreen.good.pause();
+
+
+}});
              Button btnDismiss = (Button)popupView.findViewById(R.id.dismiss);
              btnDismiss.setOnClickListener(new Button.OnClickListener(){
             	 
@@ -888,7 +899,7 @@ public class MainActivity extends BaseGameActivity implements
         try 
         { 
       
-            BufferedReader in = new BufferedReader(new FileReader("EnglishDictionary.txt")); 
+            BufferedReader in = new BufferedReader(new InputStreamReader(null)); 
             String str; 
             while((str = in.readLine()) != null){
                 dictionaryWords.add(str);

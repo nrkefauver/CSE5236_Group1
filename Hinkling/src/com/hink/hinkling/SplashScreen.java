@@ -15,6 +15,7 @@ public class SplashScreen extends Activity {
     protected int timeIncrement = 100;
     protected int sleepTime = 100;
     ArrayList<MediaPlayer> okay = new ArrayList<MediaPlayer>();
+    public static MediaPlayer good;
     
     Random rand = new Random();
     /** Called when the activity is first created. */
@@ -43,7 +44,7 @@ public class SplashScreen extends Activity {
         okay.add(n);
         okay.add(q);
         
-        final MediaPlayer good = okay.get(rand.nextInt(okay.size()));
+        good = okay.get(rand.nextInt(okay.size()));
         final MediaPlayer wistle = MediaPlayer.create(this, R.raw.swis);
         wistle.start();
         // thread for displaying the SplashScreen
