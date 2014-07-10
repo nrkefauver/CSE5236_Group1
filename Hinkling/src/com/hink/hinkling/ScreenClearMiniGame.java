@@ -4,11 +4,13 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -28,7 +30,7 @@ public class ScreenClearMiniGame extends Activity implements
     private long lastUpdate;
     private float last_x, last_y, last_z;
     private static final int SHAKE_THRESHOLD = 600;
-    private String hint = "winner";
+    private String hint = MainActivity.subject;
     private boolean arrayMade = false;
     private ArrayList<Character> lettersInString;
     private boolean ball1Set = false;
@@ -53,7 +55,25 @@ public class ScreenClearMiniGame extends Activity implements
         if (savedInstanceState == null) {
             //this.getFragmentManager().beginTransaction().add(R.id.container, new PlaceholderFragment()).commit();
         }
-    }
+
+	    new CountDownTimer(10000, 1000) { 
+
+	        public void onTick(long secondsUntilFinished) {
+
+	                 
+	        }
+
+	        public void onFinish() {
+	        	
+	     
+	  
+	            runRound();
+	        	
+	        	}
+	     }
+	    .start();     
+	}
+    
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -240,4 +260,7 @@ public class ScreenClearMiniGame extends Activity implements
             ball1.startAnimation(a);
         }
     }
+    public void runRound(){
+		this.startActivity(new Intent(this, PRound1.class));
+	}
 }

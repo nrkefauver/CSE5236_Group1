@@ -39,7 +39,7 @@ public class PlayerWaiting extends Activity  {
 	        public void onFinish() {
 	        	
 	   
-	           runChat();
+	           runRound();
 	        	
 	        	}
 	     }
@@ -83,8 +83,8 @@ public class PlayerWaiting extends Activity  {
 		}
 	}
 	
-	public void runChat(){
-		this.startActivity(new Intent(this, PRound1.class));
+	public void runRound(){
+		this.startActivity(new Intent(this, RoundOne.class));
 	}
 
 				

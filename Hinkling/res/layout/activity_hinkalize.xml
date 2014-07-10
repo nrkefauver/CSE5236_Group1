@@ -2,51 +2,52 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" 
-    android:background="@android:color/background_light">
+    android:background="@color/dark">
  <LinearLayout 
      android:layout_width="wrap_content"
      android:layout_height="wrap_content"
      android:orientation="vertical" 
      android:layout_margin="1dp"
-     android:background="@android:color/darker_gray">
+     android:background="@color/dark">
      
   <LinearLayout 
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:orientation="vertical" 
       android:layout_margin="20dp">
-   <TextView
-             android:layout_width="282dp"
-             android:layout_height="wrap_content"
-             android:text="Gmail Email" />
 
-         <EditText
-             android:id="@+id/securityUser"
+         <Button
+             android:id="@+id/colorMain"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:textColor="@color/yellow"            
+           	 android:singleLine="true"
+           	 android:text="Main Button Color"  />
+
+  		<Button
+             android:id="@+id/changeBackground"
              android:layout_width="fill_parent"
              android:layout_height="wrap_content"
              android:textColor="@color/yellow"
-             android:imeOptions="actionDone"
-           	 android:singleLine="true" />
-         <requestFocus/>
-		
-         
-  		<TextView
-             android:layout_width="282dp"
-             android:layout_height="wrap_content"
-             android:text="Gmail Password" />
-  		<EditText
-             android:id="@+id/securityPassword"
+           	 android:singleLine="true"
+           	 android:text="Change Background" />
+  		
+
+  		<Button
+             android:id="@+id/changeMusic"
              android:layout_width="fill_parent"
              android:layout_height="wrap_content"
              android:textColor="@color/yellow"
-             android:imeOptions="actionDone"
-           	 android:singleLine="true" />
+           	 android:singleLine="true"
+           	 android:text="Change Music" />
  
       <Button
           android:id="@+id/dismiss"
           android:layout_width="fill_parent"
           android:layout_height="wrap_content"
-          android:text="Submit" />
+          android:textColor="@color/yellow"
+          android:text="HINK IT!" />
+      
       </LinearLayout>
  </LinearLayout>
 </LinearLayout>

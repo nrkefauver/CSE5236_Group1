@@ -18,13 +18,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.os.Build;
 
-public class Security extends ActionBarActivity {
+public class Hinkalize extends ActionBarActivity {
 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_security);
+		setContentView(R.layout.activity_hinkalize);
 
 		if (savedInstanceState == null) {
 			getSupportFragmentManager().beginTransaction()
@@ -39,7 +39,7 @@ public class Security extends ActionBarActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.security, menu);
+		getMenuInflater().inflate(R.menu.hinkalize, menu);
 		return true;
 	}
 
@@ -66,7 +66,7 @@ public class Security extends ActionBarActivity {
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_security,
+			View rootView = inflater.inflate(R.layout.fragment_hinkalize,
 					container, false);
 			return rootView;
 		}

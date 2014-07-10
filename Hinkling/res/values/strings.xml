@@ -10,9 +10,10 @@
     <string name="enter_password">Password</string>
     <string name="login">Login</string>
     <string name="back">Back</string>
-    <string name="securityInfo">Please use the security button and type your Google email and Password to access Gameplay. .</string>
-    <string name="security">Security</string>
+    <string name="custome">Press the HINKALIZE button to customize your Main Page</string>
+    <string name="hinkalize">Hinkalize</string>
     <string name="buttonProfile">View Profile</string>
+    <string name="buttonSoloPlay">Solo Play</string>
     <string name="buttonReplay">Replay</string>
     <string name="buttonEndGameSession">End Game Session</string>
     <string name="buttonPlayFriends">Play With Friends</string>
@@ -98,8 +99,8 @@
     <string name="levelLabel">Word Length</string>
     <string name="levelTextView">3</string>
     <string name="title_activity_victory">Victory</string>
-    <string name="title_activity_pround1">PRound1</string>
-    <string name="title_activity_pround2">PRound2</string>
+    <string name="title_activity_pround1">Player Round 1</string>
+    <string name="title_activity_pround2">Player Round 2</string>
     <string name="title_activity_loading_screen">LoadingScreen</string>
     <string name="title_activity_smwaiting">SMWaiting</string>
     <string name="enter">Enter</string>

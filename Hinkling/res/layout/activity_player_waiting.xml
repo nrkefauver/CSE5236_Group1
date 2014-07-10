@@ -37,7 +37,7 @@
           android:layout_alignParentLeft="true"
           android:layout_below="@+id/textView1"
           android:layout_marginTop="52dp"
-          android:text="Entering Chat Phase In:"
+          android:text="Starting Round In:"
           android:textAppearance="@style/AppBaseTheme"
           android:textColor="@color/yellow"
           android:textSize="35dp" />

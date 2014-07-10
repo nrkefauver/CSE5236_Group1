@@ -7,21 +7,30 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Set;
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Date;
 
 import android.os.AsyncTask;
 import android.content.Context;
+
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.http.HttpRequest;
 import com.google.api.client.http.HttpRequestInitializer;
 import com.google.api.client.json.jackson.JacksonFactory;
+
 import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -32,6 +41,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -76,8 +86,9 @@ public class MainActivity extends BaseGameActivity implements
     final static int RC_INVITATION_INBOX = 10001;
     final static int RC_WAITING_ROOM = 10002;
     public static String subjectMaster = "";
-    
-
+    public static String subject ="";
+    Random rnd = new Random(); 
+    public static List<String> dictionaryWords = new ArrayList<String>();
     
     // Room ID where the currently active game is taking place; null if we're
     // not playing.
@@ -103,55 +114,87 @@ public class MainActivity extends BaseGameActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_main);
+        SharedPreferences prefs = this.getSharedPreferences(
+        	      "com.hink.hinkling", Context.MODE_PRIVATE);
 
+    
+        readingFile();
         // set up a click listener for everything we care about
         for (int id : CLICKABLES) {
             this.findViewById(id).setOnClickListener(this);
         }
         
         
-        final Button Security = (Button)findViewById(R.id.buttonSecurity);
-        Security.setOnClickListener(new Button.OnClickListener(){
+        final Button Hinkalize = (Button)findViewById(R.id.buttonHinkalize);
+        Hinkalize.setOnClickListener(new Button.OnClickListener(){
 
    @Override
    public void onClick(View arg0) {
     LayoutInflater layoutInflater 
      = (LayoutInflater)getBaseContext()
       .getSystemService(LAYOUT_INFLATER_SERVICE);  
-    View popupView = layoutInflater.inflate(R.layout.activity_security, null);  
+    View popupView = layoutInflater.inflate(R.layout.activity_hinkalize, null);  
              final PopupWindow popupWindow = new PopupWindow(
                popupView, 
                LayoutParams.WRAP_CONTENT,  
                      LayoutParams.WRAP_CONTENT,true);  
+			    
+		     final View btnA=findViewById(R.id.buttonSoloPlay);
+             final View btnB=findViewById(R.id.buttonPlayFriends);
+           final View btnC=findViewById(R.id.buttonChat);
+             final View btnD=findViewById(R.id.buttonExit);
+             final View backMain = findViewById(R.id.screen_main);
+             Button changeBackground = (Button)popupView.findViewById(R.id.changeBackground);
+             changeBackground.setOnClickListener(new Button.OnClickListener(){
+            int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256)); 
+            	 
+     @Override
+     public void onClick(View v) {
+ 	     
+ 	
+    	 backMain.setBackgroundColor(color);
+    	 
+      
+     }});
              
+             
+            final Button colorMain = (Button)popupView.findViewById(R.id.colorMain);
+            colorMain.setOnTouchListener(new Button.OnTouchListener(){
+            	 int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256)); 
+           	 boolean ButCol = false;
+
+            public boolean onTouch(View v, MotionEvent me) {
+                switch(me.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                    btnA.setBackgroundColor(color);
+                   	 btnB.setBackgroundColor(color);
+                   	 btnC.setBackgroundColor(color);
+                   	 btnD.setBackgroundColor(color);
+                   	 break;
+                    case MotionEvent.ACTION_UP:  
+                    	
+                       break;
+                }
+                return false;
+                
+            }
+  
+
+});
              Button btnDismiss = (Button)popupView.findViewById(R.id.dismiss);
-        	 final EditText securityUN= (EditText)popupView.findViewById(R.id.securityUser); 
- 			 final EditText securityPW= (EditText)popupView.findViewById(R.id.securityPassword);	
              btnDismiss.setOnClickListener(new Button.OnClickListener(){
             	 
             	 
      @Override
      public void onClick(View v) {
  	     
- 		     switch(v.getId())
- 			{	case R.id.dismiss:
-// 			  	 securityUN.setInputType(InputType.TYPE_CLASS_TEXT);
-// 	 		      InputMethodManager sUN = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-// 			      sUN.showSoftInput(securityUN, InputMethodManager.SHOW_IMPLICIT);
- 			      //XMPPChat.USERNAME = securityUN.getText().toString();
-// 			      securityPW.setInputType(InputType.TYPE_CLASS_TEXT);
-// 			      InputMethodManager sPW = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-// 			      sPW.showSoftInput(securityPW, InputMethodManager.SHOW_IMPLICIT);   
- 	 		      //XMPPChat.PASSWORD = securityPW.getText().toString();
- 				break;
- 			}
  	
       popupWindow.dismiss();
    
       
      }});
                
-             popupWindow.showAsDropDown(Security, 50, -30);
+             popupWindow.showAsDropDown(Hinkalize, 50, -30);
          
    }});
     }
@@ -184,7 +227,19 @@ public class MainActivity extends BaseGameActivity implements
         inflater.inflate(R.menu.main, menu);
         return true;
     }
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+      super.onSaveInstanceState(savedInstanceState);
 
+     // savedInstanceState.
+
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+      super.onRestoreInstanceState(savedInstanceState);
+      // Restore UI state from the savedInstanceState.
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -227,6 +282,9 @@ public class MainActivity extends BaseGameActivity implements
                 // user wants to sign out
                 this.signOut();
                 this.switchToScreen(R.id.screen_sign_in);
+                break;
+            case R.id.buttonSoloPlay:
+            	this.startActivity(new Intent(this, PlayerWaiting.class));
                 break;
             case R.id.buttonPlayFriends:
                 // show list of invitable players
@@ -665,14 +723,15 @@ public class MainActivity extends BaseGameActivity implements
         mMultiplayer = multiplayer;
         broadcastScore(false);
         switchToScreen(R.id.screen_game);
-        
-        Participant sM = mParticipants.get(1);
-     subjectMaster = sM.getParticipantId();
-        if (subjectMaster.contains(mMyId)){
-        this.startActivity(new Intent(this, WelcomeSM.class));
-        } else {
+       subject = dictionaryWords.get(rnd.nextInt(dictionaryWords.size()));
+        /* The following commented out code is when we implement subject master rounds*/
+        //Participant sM = mParticipants.get(1);
+        //subjectMaster = sM.getParticipantId();
+        //if (subjectMaster.contains(mMyId)){
+        //this.startActivity(new Intent(this, WelcomeSM.class));
+        //} else {
         this.startActivity(new Intent(this, PlayerWaiting.class));
-        }
+        //}
        
         // run the gameTick() method every second to update the game.
         final Handler h = new Handler();
@@ -763,7 +822,7 @@ public class MainActivity extends BaseGameActivity implements
     // event handlers.
     final static int[] CLICKABLES = { R.id.buttonQuickPlay, R.id.buttonProfile,
             R.id.buttonSettings, R.id.buttonPlayFriends, R.id.buttonExit,
-            R.id.buttonInvites,R.id.buttonChat };
+            R.id.buttonInvites,R.id.buttonChat,R.id.buttonSoloPlay };
 
     // This array lists all the individual screens our game has.
     final static int[] SCREENS = {
@@ -825,6 +884,21 @@ public class MainActivity extends BaseGameActivity implements
                 WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
+    public static void readingFile(){
+        try 
+        { 
+      
+            BufferedReader in = new BufferedReader(new FileReader("EnglishDictionary.txt")); 
+            String str; 
+            while((str = in.readLine()) != null){
+                dictionaryWords.add(str);
+            }
+        }
+    catch (IOException e) {
+			
+				e.printStackTrace();
+			}
+    }
 
 
 }

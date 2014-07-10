@@ -3,12 +3,15 @@ package com.hink.hinkling;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.os.Build;
 
 public class RoundOne extends ActionBarActivity {
@@ -22,6 +25,25 @@ public class RoundOne extends ActionBarActivity {
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
+		
+
+
+	    new CountDownTimer(4000, 1000) { 
+
+	        public void onTick(long secondsUntilFinished) {
+
+	                 
+	        }
+
+	        public void onFinish() {
+	        	
+	     
+	  
+	            runRound();
+	        	
+	        	}
+	     }
+	    .start();     
 	}
 
 	@Override
@@ -60,5 +82,9 @@ public class RoundOne extends ActionBarActivity {
 			return rootView;
 		}
 	}
+	public void runRound(){
+		this.startActivity(new Intent(this, ScreenClearMiniGame.class));
+	}
 
+				
 }

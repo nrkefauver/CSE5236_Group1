@@ -34,14 +34,22 @@
         </activity>
         <activity android:label="@string/title_activity_call_camera" android:name=".Call_camera">
         </activity>
-        <activity android:label="@string/title_activity_main" android:launchMode="standard" android:name=".MainActivity" android:permission="com.hink.hinkling.LAUNCHACTIVITY" android:screenOrientation="unspecified">
+        <activity android:label="@string/title_activity_main" 
+            android:launchMode="standard" 
+            android:name=".MainActivity" 
+            android:permission="com.hink.hinkling.LAUNCHACTIVITY" 
+            android:screenOrientation="unspecified">
             <intent-filter>
                 <action android:name="com.hink.hinkling.MainActivity"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:label="@string/title_activity_settings" android:name=".Settings">
+        <activity android:label="@string/title_activity_settings" 
+            android:name=".Settings">
+        </activity>
+           <activity android:label="@string/title_activity_pround1" 
+            android:name=".PRound1">
         </activity>
         <activity android:label="@string/title_activity_game_session" android:name=".GameSession">
         </activity>
@@ -104,7 +112,7 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:label="@string/title_activity_security" android:name=".Security" android:windowSoftInputMode="stateVisible|adjustResize">
+        <activity android:label="@string/title_activity_security" android:name=".Hinkalize" android:windowSoftInputMode="stateVisible|adjustResize">
         </activity>
         <activity android:label="@string/title_activity_welcome_sm" android:name=".WelcomeSM" android:permission="com.hink.hinkling.LAUNCHACTIVITY">
             <intent-filter>
