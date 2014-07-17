@@ -1,0 +1,211 @@
+# view res/layout/abc_action_menu_item_layout.xml #generated:17
+-keep class android.support.v7.internal.view.menu.ActionMenuItemView { <init>(...); }
+
+# view res/layout/abc_action_menu_layout.xml #generated:17
+-keep class android.support.v7.internal.view.menu.ActionMenuView { <init>(...); }
+
+# view res/layout/abc_expanded_menu_layout.xml #generated:17
+-keep class android.support.v7.internal.view.menu.ExpandedMenuView { <init>(...); }
+
+# view res/layout/abc_list_menu_item_layout.xml #generated:17
+# view res/layout/abc_popup_menu_item_layout.xml #generated:17
+-keep class android.support.v7.internal.view.menu.ListMenuItemView { <init>(...); }
+
+# view res/layout/abc_action_bar_decor_include.xml #generated:19
+# view res/layout/abc_action_bar_decor_include.xml #generated:47
+# view res/layout/abc_action_bar_decor_overlay.xml #generated:29
+# view res/layout/abc_action_bar_decor_overlay.xml #generated:52
+-keep class android.support.v7.internal.widget.ActionBarContainer { <init>(...); }
+
+# view res/layout/abc_action_bar_decor_include.xml #generated:31
+# view res/layout/abc_action_bar_decor_overlay.xml #generated:40
+# view res/layout/abc_action_mode_bar.xml #generated:19
+-keep class android.support.v7.internal.widget.ActionBarContextView { <init>(...); }
+
+# view res/layout/abc_action_bar_decor_overlay.xml #generated:17
+-keep class android.support.v7.internal.widget.ActionBarOverlayLayout { <init>(...); }
+
+# view res/layout/abc_action_bar_decor_include.xml #generated:25
+# view res/layout/abc_action_bar_decor_overlay.xml #generated:35
+-keep class android.support.v7.internal.widget.ActionBarView { <init>(...); }
+
+# view res/layout/abc_action_bar_home.xml #generated:17
+-keep class android.support.v7.internal.widget.ActionBarView$HomeView { <init>(...); }
+
+# view res/layout/abc_action_bar_tabbar.xml #generated:17
+# view res/layout/abc_activity_chooser_view.xml #generated:19
+-keep class android.support.v7.internal.widget.LinearLayoutICS { <init>(...); }
+
+# view v11\res/layout-v11/abc_action_bar_decor.xml #generated:17
+# view v11\res/layout-v11/abc_simple_decor.xml #generated:17
+-keep class android.support.v7.internal.widget.NativeActionModeAwareLayout { <init>(...); }
+
+# view res/layout/abc_action_bar_tab.xml #generated:17
+-keep class android.support.v7.internal.widget.ScrollingTabContainerView$TabView { <init>(...); }
+
+# view res/layout/abc_search_view.xml #generated:85
+-keep class android.support.v7.widget.SearchView$SearchAutoComplete { <init>(...); }
+
+# view res/layout/activity_main.xml #generated:115
+-keep class com.google.android.gms.common.SignInButton { <init>(...); }
+
+# view AndroidManifest.xml #generated:90
+-keep class com.hink.hinkling.Audio { <init>(...); }
+
+# view AndroidManifest.xml #generated:54
+-keep class com.hink.hinkling.Call_camera { <init>(...); }
+
+# view AndroidManifest.xml #generated:173
+-keep class com.hink.hinkling.Chat { <init>(...); }
+
+# view AndroidManifest.xml #generated:168
+-keep class com.hink.hinkling.CreateProfile { <init>(...); }
+
+# view AndroidManifest.xml #generated:326
+-keep class com.hink.hinkling.DroidRunJumpActivity { <init>(...); }
+
+# view res/layout/runner.xml #generated:7
+-keep class com.hink.hinkling.DroidRunJumpView { <init>(...); }
+
+# view AndroidManifest.xml #generated:142
+-keep class com.hink.hinkling.EndGameSession { <init>(...); }
+
+# view AndroidManifest.xml #generated:276
+-keep class com.hink.hinkling.GCMIntentService { <init>(...); }
+
+# view AndroidManifest.xml #generated:158
+-keep class com.hink.hinkling.GameOne { <init>(...); }
+
+# view AndroidManifest.xml #generated:85
+-keep class com.hink.hinkling.GameSession { <init>(...); }
+
+# view AndroidManifest.xml #generated:95
+-keep class com.hink.hinkling.Help { <init>(...); }
+
+# view AndroidManifest.xml #generated:217
+-keep class com.hink.hinkling.Hinkalize { <init>(...); }
+
+# view AndroidManifest.xml #generated:318
+-keep class com.hink.hinkling.InfoJumper { <init>(...); }
+
+# view AndroidManifest.xml #generated:314
+-keep class com.hink.hinkling.InfoReflex { <init>(...); }
+
+# view AndroidManifest.xml #generated:306
+-keep class com.hink.hinkling.InfoScreenClear { <init>(...); }
+
+# view AndroidManifest.xml #generated:310
+-keep class com.hink.hinkling.JumpGame { <init>(...); }
+
+# view AndroidManifest.xml #generated:44
+-keep class com.hink.hinkling.Login { <init>(...); }
+
+# view AndroidManifest.xml #generated:130
+-keep class com.hink.hinkling.Loser { <init>(...); }
+
+# view AndroidManifest.xml #generated:58
+-keep class com.hink.hinkling.MainActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:100
+-keep class com.hink.hinkling.MyPlaybackService { <init>(...); }
+
+# view AndroidManifest.xml #generated:75
+-keep class com.hink.hinkling.PRound1 { <init>(...); }
+
+# view AndroidManifest.xml #generated:80
+-keep class com.hink.hinkling.PRound2 { <init>(...); }
+
+# view AndroidManifest.xml #generated:302
+-keep class com.hink.hinkling.PRound3 { <init>(...); }
+
+# view AndroidManifest.xml #generated:201
+-keep class com.hink.hinkling.PlayerGameSession { <init>(...); }
+
+# view AndroidManifest.xml #generated:120
+-keep class com.hink.hinkling.PlayerSearch { <init>(...); }
+
+# view AndroidManifest.xml #generated:206
+-keep class com.hink.hinkling.PlayerWaiting { <init>(...); }
+
+# view AndroidManifest.xml #generated:115
+-keep class com.hink.hinkling.PreGameSession { <init>(...); }
+
+# view AndroidManifest.xml #generated:282
+-keep class com.hink.hinkling.Reflex { <init>(...); }
+
+# view AndroidManifest.xml #generated:278
+-keep class com.hink.hinkling.RegisterActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:105
+-keep class com.hink.hinkling.Round { <init>(...); }
+
+# view AndroidManifest.xml #generated:110
+-keep class com.hink.hinkling.RoundOne { <init>(...); }
+
+# view AndroidManifest.xml #generated:292
+-keep class com.hink.hinkling.RoundThree { <init>(...); }
+
+# view AndroidManifest.xml #generated:287
+-keep class com.hink.hinkling.RoundTwo { <init>(...); }
+
+# view AndroidManifest.xml #generated:297
+-keep class com.hink.hinkling.RunnerJump { <init>(...); }
+
+# view AndroidManifest.xml #generated:196
+-keep class com.hink.hinkling.SMGameSession { <init>(...); }
+
+# view AndroidManifest.xml #generated:125
+-keep class com.hink.hinkling.SMRoundOne { <init>(...); }
+
+# view AndroidManifest.xml #generated:191
+-keep class com.hink.hinkling.SMSelect { <init>(...); }
+
+# view AndroidManifest.xml #generated:259
+-keep class com.hink.hinkling.SMWaiting { <init>(...); }
+
+# view AndroidManifest.xml #generated:234
+-keep class com.hink.hinkling.ScreenClearMiniGame { <init>(...); }
+
+# view AndroidManifest.xml #generated:70
+-keep class com.hink.hinkling.Settings { <init>(...); }
+
+# view AndroidManifest.xml #generated:178
+-keep class com.hink.hinkling.SettingsDialog { <init>(...); }
+
+# view AndroidManifest.xml #generated:33
+-keep class com.hink.hinkling.SplashScreen { <init>(...); }
+
+# view AndroidManifest.xml #generated:147
+-keep class com.hink.hinkling.Subject { <init>(...); }
+
+# view AndroidManifest.xml #generated:163
+-keep class com.hink.hinkling.ViewProfile { <init>(...); }
+
+# view AndroidManifest.xml #generated:223
+-keep class com.hink.hinkling.WelcomeSM { <init>(...); }
+
+# view AndroidManifest.xml #generated:322
+-keep class com.hink.hinkling.Winner { <init>(...); }
+
+# view AndroidManifest.xml #generated:266
+-keep class com.hink.hinkling.backend.GCMBroadcastReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:264
+# view AndroidManifest.xml #generated:275
+-keep class com.hink.hinkling.backend.GCMIntentService { <init>(...); }
+
+# view AndroidManifest.xml #generated:239
+-keep class com.hink.hinkling.chat.GuestbookActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:249
+-keep class com.hink.hinkling.chat.IntroductionActivity { <init>(...); }
+
+# onClick res/layout/activity_reflex.xml #generated:25
+-keepclassmembers class * { *** onAgainClick(...); }
+
+# onClick res/layout/activity_reflex.xml #generated:6
+-keepclassmembers class * { *** onStartClick(...); }
+
+# onClick res/layout/activity_reflex.xml #generated:15
+-keepclassmembers class * { *** onTapClick(...); }
+

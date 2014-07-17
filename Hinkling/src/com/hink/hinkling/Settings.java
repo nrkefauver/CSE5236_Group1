@@ -3,6 +3,7 @@ package com.hink.hinkling;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,7 +14,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.os.Build;
 
-public class Settings extends ActionBarActivity implements OnClickListener {
+public class Settings extends Activity implements OnClickListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +23,6 @@ public class Settings extends ActionBarActivity implements OnClickListener {
 
 		View btnSound = findViewById(R.id.buttonSound);
 		btnSound.setOnClickListener(this);
-		View btnHelp = findViewById(R.id.buttonHelp);
-		btnHelp.setOnClickListener(this);
 		View btnBack = findViewById(R.id.buttonBack);
 		btnBack.setOnClickListener(this);
 
@@ -72,10 +71,7 @@ public class Settings extends ActionBarActivity implements OnClickListener {
 
 		{
 		case R.id.buttonSound:
-			startActivity(new Intent(this, Audio.class));
-			break;
-		case R.id.buttonHelp:
-			startActivity(new Intent(this, PRound1.class));
+			SplashScreen.good.stop();
 			break;
 		case R.id.buttonBack:
 			startActivity(new Intent(this, MainActivity.class));

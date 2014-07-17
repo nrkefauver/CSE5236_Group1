@@ -20,32 +20,32 @@
              android:id="@+id/colorMain"
              android:layout_width="fill_parent"
              android:layout_height="wrap_content"
-             android:textColor="@color/yellow"            
+             android:textColor="@color/black"            
            	 android:singleLine="true"
-           	 android:text="Main Button Color"  />
+           	 android:text="Change Button Color"  />
 
   		<Button
              android:id="@+id/changeBackground"
              android:layout_width="fill_parent"
              android:layout_height="wrap_content"
-             android:textColor="@color/yellow"
+             android:textColor="@color/black"
            	 android:singleLine="true"
-           	 android:text="Change Background" />
+           	 android:text="Change Background Color" />
   		
 
   		<Button
              android:id="@+id/changeMusic"
              android:layout_width="fill_parent"
              android:layout_height="wrap_content"
-             android:textColor="@color/yellow"
+             android:textColor="@color/black"
            	 android:singleLine="true"
-           	 android:text="Change Music" />
+           	 android:text="TurnOff/Change Music" />
  
       <Button
           android:id="@+id/dismiss"
           android:layout_width="fill_parent"
           android:layout_height="wrap_content"
-          android:textColor="@color/yellow"
+          android:textColor="@color/black"
           android:text="HINK IT!" />
       
       </LinearLayout>

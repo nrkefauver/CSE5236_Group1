@@ -1,9 +1,13 @@
 package com.hink.hinkling;
 
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
+import java.util.ArrayList;
+import java.util.Random;
+
+
 import android.support.v4.app.Fragment;
+import android.app.Activity;
 import android.content.Intent;
+
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.LayoutInflater;
@@ -11,23 +15,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.os.Build;
 
-public class RoundOne extends ActionBarActivity {
+public class RoundOne extends Activity {
 
+	 Random rand = new Random();
+	 ArrayList<String> value = new ArrayList<String>();
+	 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_round_one);
 
-		if (savedInstanceState == null) {
-			getSupportFragmentManager().beginTransaction()
-					.add(R.id.container, new PlaceholderFragment()).commit();
-		}
+
 		
-
-
 	    new CountDownTimer(4000, 1000) { 
 
 	        public void onTick(long secondsUntilFinished) {
@@ -83,8 +83,34 @@ public class RoundOne extends ActionBarActivity {
 		}
 	}
 	public void runRound(){
-		this.startActivity(new Intent(this, ScreenClearMiniGame.class));
+		value.add("1");
+		value.add("2");
+		value.add("3");
+		boolean cango = false;
+		
+		while (cango == false){
+			
+		String check = value.get(rand.nextInt(value.size()));
+		
+		if(check == "1" && MainActivity.sc == false){
+		this.startActivity(new Intent(this, InfoScreenClear.class));
+		MainActivity.sc = true;
+		cango = true;
+		}else if(check == "2" && MainActivity.dr == false){
+			this.startActivity(new Intent(this, InfoJumper.class));
+			MainActivity.dr = true;
+			cango = true;
+		}else if (check == "3"&& MainActivity.rf == false){
+			this.startActivity(new Intent(this, InfoReflex.class));
+			MainActivity.rf = true;
+			cango = true;
+			
+		}
+		}
 	}
 
+	@Override
+	public void onBackPressed() {
+	}
 				
 }

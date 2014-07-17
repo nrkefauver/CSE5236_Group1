@@ -15,8 +15,10 @@
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+           <item name="android:windowNoTitle">true</item> <!-- Hides the Action Bar -->
+         <item name="android:windowFullscreen">true</item> <!-- Hides the status bar -->
     </style>
-    
+
     <style name="BaseText">
         <item name="android:typeface">sans</item>
     </style>

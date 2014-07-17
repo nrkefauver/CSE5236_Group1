@@ -56,7 +56,7 @@ public class ScreenClearMiniGame extends Activity implements
             //this.getFragmentManager().beginTransaction().add(R.id.container, new PlaceholderFragment()).commit();
         }
 
-	    new CountDownTimer(10000, 1000) { 
+	    new CountDownTimer(15000, 1000) { 
 
 	        public void onTick(long secondsUntilFinished) {
 
@@ -263,4 +263,8 @@ public class ScreenClearMiniGame extends Activity implements
     public void runRound(){
 		this.startActivity(new Intent(this, PRound1.class));
 	}
+    
+    @Override
+    public void onBackPressed() {
+    }
 }

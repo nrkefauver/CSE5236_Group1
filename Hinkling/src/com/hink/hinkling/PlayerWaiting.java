@@ -86,7 +86,10 @@ public class PlayerWaiting extends Activity  {
 	public void runRound(){
 		this.startActivity(new Intent(this, RoundOne.class));
 	}
-
+	
+	@Override
+	public void onBackPressed() {
+	}
 				
 
 

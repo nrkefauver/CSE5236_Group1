@@ -12,6 +12,7 @@ import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Date;
 
@@ -89,6 +90,12 @@ public class MainActivity extends BaseGameActivity implements
     public static String subject ="";
     Random rnd = new Random(); 
     public static List<String> dictionaryWords = new ArrayList<String>();
+    public static boolean sc = false;
+    public static boolean dr = false;
+    public static boolean rf = false;
+    public static boolean runRound2 = false;
+    public static boolean runRound3 = false;
+    
     
     // Room ID where the currently active game is taking place; null if we're
     // not playing.
@@ -144,6 +151,7 @@ public class MainActivity extends BaseGameActivity implements
            final View btnC=findViewById(R.id.buttonChat);
              final View btnD=findViewById(R.id.buttonExit);
              final View backMain = findViewById(R.id.screen_main);
+             
              Button changeBackground = (Button)popupView.findViewById(R.id.changeBackground);
              changeBackground.setOnClickListener(new Button.OnClickListener(){
             int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256)); 
@@ -161,7 +169,7 @@ public class MainActivity extends BaseGameActivity implements
             final Button colorMain = (Button)popupView.findViewById(R.id.colorMain);
             colorMain.setOnTouchListener(new Button.OnTouchListener(){
             	 int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256)); 
-           	 boolean ButCol = false;
+
 
             public boolean onTouch(View v, MotionEvent me) {
                 switch(me.getAction()) {
@@ -295,10 +303,12 @@ SplashScreen.good.pause();
                 this.switchToScreen(R.id.screen_sign_in);
                 break;
             case R.id.buttonSoloPlay:
+            	subject = dictionaryWords.get(rnd.nextInt(dictionaryWords.size()));
             	this.startActivity(new Intent(this, PlayerWaiting.class));
                 break;
             case R.id.buttonPlayFriends:
                 // show list of invitable players
+            	
                 intent = Games.RealTimeMultiplayer.getSelectOpponentsIntent(
                         this.getApiClient(), 1, 3);
                 this.switchToScreen(R.id.screen_wait);
@@ -313,20 +323,17 @@ SplashScreen.good.pause();
                 break;
             case R.id.button_accept_popup_invitation:
                 // user wants to accept the invitation shown on the invitation popup
-                // (the one we got through the OnInvitationReceivedListener).
-            	
-                this.acceptInviteToRoom(this.mIncomingInvitationId);
-                this.mIncomingInvitationId = null;
-                intent = Games.Invitations.getInvitationInboxIntent(this
-                        .getApiClient());
-                this.switchToScreen(R.id.screen_wait);
-                this.startActivityForResult(intent, RC_INVITATION_INBOX);
-                break;
+                // (the one we got through the OnInvitationReceivedListener).         	
+            	 intent = Games.Invitations.getInvitationInboxIntent(this
+                         .getApiClient());
+                 this.switchToScreen(R.id.screen_wait);
+                 this.startActivityForResult(intent, RC_INVITATION_INBOX);
+                 break;
             case R.id.buttonChat:
             	this.startActivity(new Intent(this, Help.class));
                 break;
             case R.id.buttonSettings:
-            	this.startActivity(new Intent(this, GuestbookActivity.class));
+            	this.startActivity(new Intent(this, Settings.class));
                 break;
             case R.id.buttonQuickPlay:
                 // user wants to play against a random opponent right now
@@ -358,7 +365,7 @@ SplashScreen.good.pause();
 
     void startQuickGame() {
         // quick-start a game with 1 randomly selected opponent
-        final int MIN_OPPONENTS = 3, MAX_OPPONENTS = 3;
+        final int MIN_OPPONENTS = 1, MAX_OPPONENTS = 3;
         Bundle autoMatchCriteria = RoomConfig.createAutoMatchCriteria(
                 MIN_OPPONENTS, MAX_OPPONENTS, 0);
         RoomConfig.Builder rtmConfigBuilder = RoomConfig.builder(this);
@@ -734,13 +741,14 @@ SplashScreen.good.pause();
         mMultiplayer = multiplayer;
         broadcastScore(false);
         switchToScreen(R.id.screen_game);
-       subject = dictionaryWords.get(rnd.nextInt(dictionaryWords.size()));
+       
         /* The following commented out code is when we implement subject master rounds*/
         //Participant sM = mParticipants.get(1);
         //subjectMaster = sM.getParticipantId();
         //if (subjectMaster.contains(mMyId)){
         //this.startActivity(new Intent(this, WelcomeSM.class));
         //} else {
+        subject = dictionaryWords.get(rnd.nextInt(dictionaryWords.size()));
         this.startActivity(new Intent(this, PlayerWaiting.class));
         //}
        
@@ -895,15 +903,21 @@ SplashScreen.good.pause();
                 WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
-    public static void readingFile(){
+    public  void readingFile(){
         try 
         { 
-      
-            BufferedReader in = new BufferedReader(new InputStreamReader(null)); 
-            String str; 
-            while((str = in.readLine()) != null){
+        	String str="";
+        				
+        	InputStream is = getApplicationContext().getResources().openRawResource(R.raw.englishdictionary);
+        	BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        	Log.d("file",reader.readLine());
+        							
+        		while (reader.ready()) {
+        			str = reader.readLine();
                 dictionaryWords.add(str);
-            }
+        		}
+            
+        	is.close();
         }
     catch (IOException e) {
 			

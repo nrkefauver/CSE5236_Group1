@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgr"
+    tools:context="com.hink.hinkling.SMWaiting"
+    tools:ignore="MergeRootFrame" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Prepare for Hinkler Results"
+        android:textAppearance="@style/AppBaseTheme"
+        android:textColor="@color/yellow"
+        android:textSize="50dp" />
+
+      <TextView
+          android:id="@+id/timeSub2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/textView2"
+          android:layout_centerHorizontal="true"
+          android:layout_marginTop="38dp"
+          android:text="Large Text"
+          android:textAppearance="?android:attr/textAppearanceMedium"
+          android:textColor="@color/yellow"
+          android:textSize="60dp" />
+
+      <TextView
+          android:id="@+id/textView2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentLeft="true"
+          android:layout_below="@+id/textView1"
+          android:layout_marginTop="52dp"
+          android:text="Entering next round"
+          android:textAppearance="@style/AppBaseTheme"
+          android:textColor="@color/yellow"
+          android:textSize="35dp" />
+
+ />
+</RelativeLayout>
+

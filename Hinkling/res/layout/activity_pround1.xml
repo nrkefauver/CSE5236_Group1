@@ -55,6 +55,37 @@
             android:layout_gravity="center"
             android:text="@string/enter"
             android:textColor="@color/yellow" />
+        
+            <TextView
+            android:id="@+id/foundLetters"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="You Gained these Hinkling Letters:"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/yellow" />
+            <TextView
+            android:id="@+id/hinklingLetters"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/yellow" />
+            
+        
     </LinearLayout>
+    
+          <TextView
+          android:id="@+id/timeSub2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/guess1Btn"
+          android:layout_centerHorizontal="true"
+          android:layout_marginTop="38dp"
+          android:text="Large Text"
+          android:textAppearance="?android:attr/textAppearanceMedium"
+          android:textColor="@color/yellow"
+          android:textSize="60dp" />
 
 </FrameLayout>

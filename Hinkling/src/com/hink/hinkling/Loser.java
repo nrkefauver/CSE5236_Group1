@@ -1,21 +1,42 @@
 package com.hink.hinkling;
 
-import android.support.v7.app.ActionBarActivity;
+
+import com.hink.hinkling.chat.GuestbookActivity;
+
 import android.support.v4.app.Fragment;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
 
-public class Loser extends ActionBarActivity {
+public class Loser extends Activity implements OnClickListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_loser);
-
+		
+		View replay=findViewById(R.id.Replay);
+		replay.setOnClickListener(this);
+		View EG=findViewById(R.id.EndGame);
+		EG.setOnClickListener(this);
+		View MM=findViewById(R.id.BackToMain);
+		MM.setOnClickListener(this);
+		
+		MainActivity.sc = false;
+		MainActivity.dr = false;
+		MainActivity.rf = false;
+		MainActivity.runRound2 = false;
+		MainActivity.runRound3 = false;
+		TextView answer=(TextView)findViewById(R.id.subjectAnswer);
+		answer.setText(MainActivity.subject);
 	}
 
 	@Override
@@ -53,6 +74,22 @@ public class Loser extends ActionBarActivity {
 					container, false);
 			return rootView;
 		}
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch(v.getId())
+		{	case R.id.Replay:
+			startActivity(new Intent(this, PlayerWaiting.class));
+			break;
+		case R.id.EndGame:
+			startActivity(new Intent(this, GuestbookActivity.class));
+			break;
+		case R.id.BackToMain:
+			startActivity(new Intent(this, MainActivity.class));
+			break;
+		}
+		
 	}
 
 }

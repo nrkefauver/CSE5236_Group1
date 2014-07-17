@@ -23,21 +23,12 @@
 
          <Button
            android:id="@+id/buttonHinkalize"
-           android:layout_width="80dp"
-           android:layout_height="80dp"
+           android:layout_width="100dp"
+           android:layout_height="100dp"
            android:background="@color/dark"
            android:text="@string/hinkalize"
            android:textColor="@color/yellow" />
          
-       <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/custome"
-        android:textColor="@color/red"
-        android:textSize="7sp" />
-         
- 
    <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="0dp"
@@ -109,7 +100,7 @@
     <Button
         android:id="@+id/buttonExit"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:background="@color/lightyellow"
         android:layout_below="@+id/buttonSettings"
         android:text="@string/exit" />
@@ -126,25 +117,29 @@
     </LinearLayout>
     
     <!-- INVITATION POPUP -->
-    <LinearLayout android:id="@+id/invitation_popup" style="@style/InvPopup" android:layout_width="match_parent"
+    <RelativeLayout android:id="@+id/invitation_popup" 
+      style="@style/InvPopup"      
+    android:background = "@color/dark"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
         
         <TextView android:id="@+id/incoming_invitation_text" 
             style="@style/InvPopupText"
             android:textColor = "@color/yellow"
-            android:background = "@color/dark"
-            android:layout_width="100dp"
-    android:layout_height="100dp" />
+            android:background = "@color/black"
+            android:layout_width="200dp"
+    		android:layout_height="100dp" />
         
         <Button android:id="@+id/button_accept_popup_invitation"
             style="@style/InvPopupButton"
             android:text="@string/accept_popup_invite"
             android:textColor = "@color/yellow"
-            android:background = "@color/dark"
+            android:background = "@color/red"
+             android:layout_below="@+id/incoming_invitation_text"
             android:layout_width="70dp"
             android:layout_height="70dp" />
         
-    </LinearLayout>
+    </RelativeLayout>
 
     <!-- "PLEASE WAIT" SCREEN -->
     <LinearLayout android:id="@+id/screen_wait" 
@@ -161,7 +156,8 @@
       <!-- GAMEPLAY SCREEN -->
     <LinearLayout android:id="@+id/screen_game"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:screenOrientation = "portrait">
       
 
     </LinearLayout>
